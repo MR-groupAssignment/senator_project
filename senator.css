@@ -65,12 +65,12 @@
 }
 
 .percentRepublic{
-    width: 70vw;
+    width: 50vw;
     height: 90vh;
 }
 
 .percentDemocrat{
-    width: 30vw;
+    width: 50vw;
     height: 90vh;
 }
 
@@ -79,5 +79,5 @@
 }
 
 .percentDemocrat:hover{
-    background-color: rgba(0, 0, 255, 0.4);
+    background-color: rgba(255, 0, 0, 0.4);
 }
