@@ -113,3 +113,21 @@
     background-color: rgba(255, 0, 0, 0.4);
     content: "Democrat";
 }
+
+.tabs{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tabButton{
+    flex: 1;
+    text-align: center;
+    background-color: #515151;
+}
+
+.description{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
