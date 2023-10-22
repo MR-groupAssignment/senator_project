@@ -1,19 +1,54 @@
-*{
+* {
     margin: 0;
-    padding: 0;
+    color: #CAF0F8;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #023E8A;
+    padding: 0 2.0vw;
+    height: 5.0vw;
+}
+
+.head h1{
+    font-size: 3.0vw;
+}
+
+.navBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1.0vw;
+}
+
+.navBar a{
+    text-decoration: none;
+    font-size: 1.2vw;
+    padding: 1.0vw;
+    min-width: 5.0vw;
+    text-align: center;
+}
+
+.navBar a:hover{
+    background-color: #0077B6;
+    color: white;
+    border-radius: 10.0vw;
 }
 
 .imageSlider {
     background-image: url(./images/us_flag.png);
     background-position: center;
-    background-size: contain;
-    background-repeat: repeat-x;
+    background-size: cover;
     position: relative;
     width: 100vw;
-    height: 90vh;
+    height: 50vw;
 }
 
-.imagesOfLogos{
+.imagesOfLogos {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -23,61 +58,58 @@
     overflow: hidden;
 }
 
-@keyframes elephant{
-    from 
-    {
+@keyframes elephant {
+    from {
         transform: translateX(-100%);
     }
-    to
-    {
+
+    to {
         transform: translateX(0%);
     }
 }
 
-.imageRepublic
-{
+.imageRepublic {
     animation: elephant 3s 0s linear;
     max-width: 50vw;
 }
 
-@keyframes donkey{
-    from 
-    {
+@keyframes donkey {
+    from {
         transform: translateX(100%);
     }
-    to
-    {
+
+    to {
         transform: translateX(0%);
     }
 }
 
-.imageDemocrat
-{
+.imageDemocrat {
     animation: donkey 3s 0s linear;
     max-width: 50vw;
 }
 
-.percentageOfLogos{
+.percentageOfLogos {
     display: flex;
     align-items: center;
     justify-content: space-around;
     position: absolute;
 }
 
-.percentRepublic{
+.percentRepublic {
     width: 50vw;
-    height: 90vh;
+    height: 50vw;
 }
 
-.percentDemocrat{
+.percentDemocrat {
     width: 50vw;
-    height: 90vh;
+    height: 50vw;
 }
 
-.percentRepublic:hover{
+.percentRepublic:hover {
     background-color: rgba(0, 0, 255, 0.4);
 }
 
-.percentDemocrat:hover{
+.percentDemocrat:hover {
     background-color: rgba(255, 0, 0, 0.4);
+    content: "Democrat";
 }
