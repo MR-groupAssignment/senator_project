@@ -36,7 +36,8 @@
 .navBar a:hover{
     background-color: #0077B6;
     color: white;
-    border-radius: 10.0vw;
+    border-radius: 5px;
+    transform: scale(1.1);
 }
 
 .imageSlider {
@@ -123,7 +124,16 @@
 .tabButton{
     flex: 1;
     text-align: center;
-    background-color: #515151;
+    color: #515151;
+    font-size: 3.0vw;
+    padding: 2.0vh 2.0vw;
+    border: none;
+}
+
+.tabButton:hover{
+    transform: scale(1.1);
+    border: solid 0.5vh rgba(0, 0, 0, 0.546);
+    border-radius: 1.0vw;
 }
 
 .description{
