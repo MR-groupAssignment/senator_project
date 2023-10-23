@@ -21,7 +21,7 @@ async function GetJsonData()
     }
 
     const data = await promise.json();
-    return data;
+return data;
 }
 
 let v = GetJsonData().then(response=> console.log('fuck you'));
