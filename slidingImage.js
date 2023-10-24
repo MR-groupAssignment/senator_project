@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let percentRepublic = document.querySelector('.percentRepublic');
     let percentDemocrat = document.querySelector('.percentDemocrat');
     let percentage = document.querySelectorAll('.percentage');
+    const video = document.querySelector('.entryVideo video');
+    const playButton = document.querySelector('.play');
+
     const jsonFile = './senators.json';
 
     percentage.forEach(function(element) {
@@ -29,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 } 
                 else if (element.classList.contains('percentDemocrat') && countDemo === 0) {
                     countDemo++;
-                    percentDemocrat.style.cssText = 'text-align: center; font-size: 3.0vw; color: rgb(173 25 64); text-shadow: rgb(255 169 169) 0.1vw 0.1vw 0vw;';
+                    percentDemocrat.style.cssText = 'text-align: center; font-size: 3.0vw; color: #ad1940; text-shadow: rgb(255 169 169) 0.1vw 0.1vw 0vw;';
                     percentDemocrat.innerHTML +=`${(countDemocrat / data.objects.length) * 100}%<br>`;
                     percentDemocrat.innerHTML += `Majority Democrat<br>`;
                     percentDemocrat.innerHTML += `Total ${countDemocrat} Members`;
@@ -45,5 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 percentDemocrat.innerHTML = '';
             }
         });
+    });
+
+    playButton.addEventListener('click', function() {
+        if (video.paused) {
+            video.play();
+            // playButton.style.display = 'none';
+        } else {
+            video.pause();
+            // playButton.style.display = 'block';
+        }
     });
 });
