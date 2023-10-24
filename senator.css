@@ -135,12 +135,12 @@
     }
 
     to {
-        transform: translateX(0%);
+        transform: translateX(40%);
     }
 }
 
 .imageRepublic {
-    animation: elephant 3s 0s linear;
+    animation: elephant 2s 0s alternate infinite;
     max-width: 50vw;
 }
 
@@ -150,12 +150,12 @@
     }
 
     to {
-        transform: translateX(0%);
+        transform: translateX(-40%);
     }
 }
 
 .imageDemocrat {
-    animation: donkey 3s 0s linear;
+    animation: donkey 2s 0s alternate infinite;
     max-width: 50vw;
 }
 
