@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         content.appendChild(contentName);
                     }
                     button.style.color = "#CAF0F8";
+                    content.animate([{height: '0vmax'}, {height: '55.0vmax'}], {duration: 1500, fill: 'forwards', delay: 0});
                 });
         });
     });

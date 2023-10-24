@@ -40,15 +40,6 @@
     transform: scale(1.1);
 }
 
-.imageSlider {
-    background-image: url(./images/us_flag.png);
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    width: 100.0vw;
-    height: 50vw;
-}
-
 .entryVideo{
     display: flex;
     align-items: center;
@@ -119,6 +110,15 @@
     transform: scale(0.9);
 }
 
+.imageSlider {
+    background-image: url(./images/us_flag.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    width: 100.0vw;
+    height: 50vw;
+}
+
 .imagesOfLogos {
     display: flex;
     align-items: center;
@@ -131,32 +131,32 @@
 
 @keyframes elephant {
     from {
-        transform: translateX(-100%);
+        transform: translateX(-40vw);
     }
 
     to {
-        transform: translateX(40%);
+        transform: translateX(7.0vw);
     }
 }
 
 .imageRepublic {
-    animation: elephant 2s 0s alternate infinite;
-    max-width: 50vw;
+    animation: elephant 1.5s 0s alternate infinite;
+    width: 40vw;
 }
 
 @keyframes donkey {
     from {
-        transform: translateX(100%);
+        transform: translateX(40vw);
     }
 
     to {
-        transform: translateX(-40%);
+        transform: translateX(-7.0vw);
     }
 }
 
 .imageDemocrat {
-    animation: donkey 2s 0s alternate infinite;
-    max-width: 50vw;
+    animation: donkey 1.5s 0s alternate infinite;
+    width: 40vw;
 }
 
 .percentageOfLogos {
@@ -187,11 +187,11 @@
 }
 
 .percentRepublic:hover {
-    background-color: rgba(179, 25, 66, 0.4);
+    background-color: rgba(179, 25, 66, 0.5);
 }
 
 .percentDemocrat:hover {
-    background-color: rgba(10, 49, 97, 0.4);
+    background-color: rgba(10, 49, 97, 0.5);
     content: "Democrat";
 }
 
@@ -210,13 +210,11 @@
     border: none;
 }
 
-.tabButton:hover{
-    transform: scale(1.1);
-    border: solid 2px rgba(0, 0, 0, 0.546);
-}
-
 .description{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    height: 55.0vmax;
+    overflow: hidden;
+    white-space: nowrap;
 }
