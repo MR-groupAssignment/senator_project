@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let percentage = document.querySelectorAll('.percentage');
     const video = document.querySelector('.entryVideo video');
     const playButton = document.querySelector('.play');
+    const videoText = document.querySelector('.videoText');
 
     const jsonFile = './senators.json';
 
@@ -53,10 +54,34 @@ document.addEventListener('DOMContentLoaded', function() {
     playButton.addEventListener('click', function() {
         if (video.paused) {
             video.play();
-            // playButton.style.display = 'none';
+            playButton.style.opacity = '0';
         } else {
             video.pause();
-            // playButton.style.display = 'block';
+            playButton.style.opacity = '1';
         }
+        videoText.animate([
+            {width: '0%'},
+            {width: '100%'}
+        ], {
+            duration: 1000,
+            fill: 'forwards'
+        });
+    });
+
+    video.addEventListener('click', function() {
+        if (video.paused) {
+            video.play();
+            playButton.style.opacity = '0';
+        } else {
+            video.pause();
+            playButton.style.opacity = '1';
+        }
+        videoText.animate([
+            {width: '0%'},
+            {width: '100%'}
+        ], {
+            duration: 1000,
+            fill: 'forwards'
+        });
     });
 });
