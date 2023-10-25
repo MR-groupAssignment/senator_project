@@ -218,3 +218,157 @@
     overflow: hidden;
     white-space: nowrap;
 }
+
+
+/*ritwik edits - 24/10*/
+.tableHeading
+{
+    color:red;/* to be changed*/
+    margin-top: 2vh;
+    text-align: center;
+    font-size: 7vh;
+    text-shadow: rgba(3, 52, 112, 0.9) 1px 0 10px;;
+}
+
+.filters{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5vh;
+    grid-template-rows: 50%;
+    grid-template-columns: 32% 32% 32%;
+    margin-left: 20%;
+    margin-right: 20%;
+    gap:15px;
+}
+
+.filterButton
+{
+    background-color: #c0c0c080;
+    color: black;
+    font-size: 3vh;
+    height: 5vh;
+    text-align: center;
+    border: 3px solid gray;
+    outline: 2px solid #0077B6;
+    outline-offset: 0.5px;
+    outline-style:double;
+    border-radius: 5px;
+}
+
+.senatorsList
+{
+
+    text-align: center;
+}
+
+.mainTable
+{
+    margin-left: 20%;
+    margin-right: 20%;
+    width:60%;
+    border-spacing: 0px; 
+}
+
+.tableHeadRow
+{
+    text-align: center;
+    background-color: #0077B6;
+    height: 4vh;
+}
+
+.tableHeadRow th
+{
+    font-size: x-large;
+    font-weight: bolder;
+    color:black; 
+}
+
+.mainTable .info
+{
+    font-weight: bolder;
+    text-align: center;
+    background-color: red;/* can be changed later*/
+}
+
+.info td
+{
+    color: black;
+}
+
+
+/*ritwik edits - 24/10*/
+.tableHeading
+{
+    color:red;/* to be changed*/
+    margin-top: 2vh;
+    text-align: center;
+    font-size: 7vh;
+    text-shadow: rgba(3, 52, 112, 0.9) 1px 0 10px;;
+}
+
+.filters{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5vh;
+    grid-template-rows: 50%;
+    grid-template-columns: 32% 32% 32%;
+    margin-left: 20%;
+    margin-right: 20%;
+    gap:15px;
+}
+
+.filterButton
+{
+    background-color: #c0c0c080;
+    color: black;
+    font-size: 3vh;
+    height: 5vh;
+    text-align: center;
+    border: 3px solid gray;
+    outline: 2px solid #0077B6;
+    outline-offset: 0.5px;
+    outline-style:double;
+    border-radius: 5px;
+}
+
+.senatorsList
+{
+
+    text-align: center;
+}
+
+.mainTable
+{
+    margin-left: 20%;
+    margin-right: 20%;
+    width:60%;
+    border-spacing: 0px; 
+}
+
+.tableHeadRow
+{
+    text-align: center;
+    background-color: #0077B6;
+    height: 4vh;
+}
+
+.tableHeadRow th
+{
+    font-size: x-large;
+    font-weight: bolder;
+    color:black; 
+}
+
+.mainTable .info
+{
+    font-weight: bolder;
+    text-align: center;
+    background-color: red;/* can be changed later*/
+}
+
+.info td
+{
+    color: black;
+}

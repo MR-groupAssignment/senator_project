@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         button.style.backgroundColor = `${arrayOfColors[2]}`;
                         content.style.backgroundColor = `${arrayOfColors[2]}`;
+                        //todo change contentName.innerHTML
                         contentName.innerHTML = "There is no independent party leader";
                         contentName.style.textAlign = "center";
                         content.appendChild(contentName);

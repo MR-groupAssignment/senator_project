@@ -26,7 +26,7 @@
 
     <main class="mainContent">
         <div class="entryVideo">
-            <video src="./videos/Virtual U.S. Capitol Tour.mp4" autoplay></video>
+            <video src="./videos/Virtual U.S. Capitol Tour.mp4" ></video>
             <div class="videoLayer">
                 <p class="videoText"><span style="color: #023E8A;">United</span> <span style="color: #ad1940">States</span></p>
                 <div class="videoControls">
@@ -53,12 +53,52 @@
             <button class="tabButton" name="independentBtn">Independent</button>
         </div>
         <div class="description">
-            lodum ipsum
         </div>
         <script src="./tabOfParties.js"></script>
     </main>
 
-    <footer class="foot"></footer>
+    <div>
+
+        <h1 class="tableHeading"> Senators</h1>
+
+        <div class="filters">
+            <!-- add onchange to each select -->
+            <select class="filterButton" id="partyFilter" onchange="ApplyFilters()">
+                <option value="">Party(Show All)</option>
+            </select>
+    
+            <select class="filterButton" name="" id="stateFilter" onchange="ApplyFilters()">
+                <option value="">State(Show All)</option>
+            </select>
+            
+            <select class="filterButton" name="" id="rankFilter" onchange="ApplyFilters()">
+                <option value="">Rank(Show All)</option>
+            </select>
+        </div>
+
+        <table class ="mainTable">
+            <thead>
+                <tr class="tableHeadRow">
+                    <th>Name</th>
+                    <th>Party</th>
+                    <th>State</th>
+                    <th>Gender</th>
+                    <th>Rank</th>
+                </tr>
+            </thead>
+        </table>
+        <script src="./senator_data.js"></script>
+    </div>
+
+    
+
+
+
+
+
+    <footer class="foot">
+
+    </footer>
 
     </footer>
 

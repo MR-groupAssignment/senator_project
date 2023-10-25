@@ -1,65 +1,45 @@
-// var uniqueresult = [];
 
+async function GetJsonData() {
+    var senatorTableData = [[]];
+    var uniqueParties = [];
+    const jsonfile = './senators.json';
 
-// var jsondata = require("../senator_project/senators.json");
-// console.log(jsondata);
-// fetch("../senators.json")
-// var jasondata = await(function(response){
+    const promise = await fetch(jsonfile);
 
-//     jsondata = response.json()
-//     return jsondata;
-// })
-// console.log(jasondata)
-
-async function GetJsonData()
-{
-    const promise = await fetch("../senators.json")
-
-    if(!promise.ok)
-    {
+    if (!promise.ok) {
         throw new Error(`status:${promise.status}`)
     }
 
     const data = await promise.json();
-return data;
-}
 
-let v = GetJsonData().then(response=> console.log('fuck you'));
-
-
-function PartyInfoProvider(event, partyName, index)
-{
-    var colors = ['red', 'blue', 'purple'];
-    //selecting the div where we will write the data for all parties
-    var content = document.querySelector('.description');
-    //setting the div display as none is important otherwise 
-    //the data from first click will always be on top
-    content.innerHTML = "";
-
-    //selecting all tab buttons
-    var buttons = document.getElementsByClassName("tabButton")
-    //changing the button color so that it reflects change of tab
-    for (var i=0; i<buttons.length;i++)
-    {
-        buttons[i].style.backgroundColor = "";
+    for (var objItr = 0; objItr < data.objects.length; objItr++) {
+        if (uniqueParties.indexOf(data.objects[objItr].party) === -1) {
+            uniqueParties.push(data.objects[objItr].party);
+        }
     }
 
-    //TODO: add data from json file to this content div
-
-    let contentHeader = document.createElement('h2');
-    contentHeader.textContent =  partyName;
-    content.appendChild(contentHeader);
-
-    //making the content div visible again with new data
-    content.style.display='block';
-
-    //adding colors to the buttons
-    if(index == 0)
-    buttons[index].style.backgroundColor = colors[index];
-    else if(index == 1)
-    buttons[index].style.backgroundColor = colors[index];
-    else if(index == 2)
-    buttons[index].style.backgroundColor = colors[index];
+    FillTableData(data, uniqueParties);
 }
-//this ensures that the tab containing data for republicans remains open by default
-document.getElementById("defaultTab").click();
+
+function FillTableData(data, uniqueParties) {
+    var table = document.getElementsByClassName("mainTable")[0];
+    var counter = 0;
+    for (var j = 0; j < uniqueParties.length; j++) {
+        for (var dt = 0; dt < data.objects.length; dt++) {
+            if (data.objects[dt].party == uniqueParties[j]) {
+
+                senatorInfo = "<tr class=\"info\" onclick=\"GetSenatorDetails(" + dt + ")\">" + "<td>" + data.objects[dt].person.firstname + " " + data.objects[dt].person.lastname + "</td>" + "<td>" + data.objects[dt].party + "</td>" + "<td>" + data.objects[dt].state + "</td>" + "<td>" + data.objects[dt].person.gender_label + "</td>" + "<td>" + data.objects[dt].senator_rank_label + "</td>" + "</tr></tbody>";
+        
+                table.innerHTML+= senatorInfo;
+            }
+        }
+    }
+}
+
+//directly linked to html select tag
+function ApplyFilters()
+{
+
+}
+
+GetJsonData();
