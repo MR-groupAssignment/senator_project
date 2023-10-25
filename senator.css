@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    color: #CAF0F8;
+    color: #93e2ff;
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-family: 'Ubuntu', sans-serif;
 }
@@ -187,12 +187,11 @@
 }
 
 .percentRepublic:hover {
-    background-color: rgba(179, 25, 66, 0.5);
+    background-color: rgba(10, 49, 97, 0.5);
 }
 
 .percentDemocrat:hover {
-    background-color: rgba(10, 49, 97, 0.5);
-    content: "Democrat";
+    background-color: rgba(179, 25, 66, 0.5);
 }
 
 .tabs{
@@ -207,6 +206,7 @@
     color: #515151;
     font-size: 3.0vw;
     padding: 1.0vh 1.0vw;
+    height: 7.0vmax;
     border: none;
 }
 
@@ -219,156 +219,120 @@
     white-space: nowrap;
 }
 
-
 /*ritwik edits - 24/10*/
-.tableHeading
-{
-    color:red;/* to be changed*/
-    margin-top: 2vh;
-    text-align: center;
-    font-size: 7vh;
-    text-shadow: rgba(3, 52, 112, 0.9) 1px 0 10px;;
-}
-
-.filters{
-    display: grid;
+.tableCover{
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2.5vh;
-    grid-template-rows: 50%;
-    grid-template-columns: 32% 32% 32%;
-    margin-left: 20%;
-    margin-right: 20%;
-    gap:15px;
+    flex-direction: column;
+    background-image: url(./images/tableBackground.png);
+    background-position: center;
+    background-size: cover;
 }
 
-.filterButton
+.tableHeading
 {
-    background-color: #c0c0c080;
-    color: black;
-    font-size: 3vh;
-    height: 5vh;
     text-align: center;
-    border: 3px solid gray;
-    outline: 2px solid #0077B6;
-    outline-offset: 0.5px;
-    outline-style:double;
-    border-radius: 5px;
+    font-size: 5.0vw;
+    color: #ad1940;
+    text-shadow: rgb(255 169 169) 0.1vw 0.1vw 0vw;
+    margin-top: 2.0vh;
+}
+
+.filterWrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 96.0vw;
+    padding: 2.0vw;
+    gap: 1.0vw;
+}
+
+.filter{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.0vw;
+}
+
+.filter p{
+    font-size: 2.0vw;
+    color: #93e2ff;
+    text-shadow: rgba(1, 1, 1, 0.9) 0.2vw 0.1vw 0vw;
+}
+
+.filter .filterButton{
+    display: flex;
+    margin: 0 auto;
+    font-size: 2.0vw;
+    color: #93e2ff;
+    background-color: #ad1940;
+    box-shadow: 0 0 1vmin #000000a5;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    padding: 2.0vw;
+    text-align: center;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("./images/down-arrow-svgrepo-com.svg");
+    background-repeat: no-repeat;
+    background-position: right 1.0vw top 50%;
+    background-size: 4.0vw;
+}
+
+.filterButton:hover{
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .senatorsList
 {
-
     text-align: center;
 }
 
-.mainTable
+.tableWrapper
 {
-    margin-left: 20%;
-    margin-right: 20%;
-    width:60%;
-    border-spacing: 0px; 
-}
-
-.tableHeadRow
-{
-    text-align: center;
-    background-color: #0077B6;
-    height: 4vh;
-}
-
-.tableHeadRow th
-{
-    font-size: x-large;
-    font-weight: bolder;
-    color:black; 
-}
-
-.mainTable .info
-{
-    font-weight: bolder;
-    text-align: center;
-    background-color: red;/* can be changed later*/
-}
-
-.info td
-{
-    color: black;
-}
-
-
-/*ritwik edits - 24/10*/
-.tableHeading
-{
-    color:red;/* to be changed*/
-    margin-top: 2vh;
-    text-align: center;
-    font-size: 7vh;
-    text-shadow: rgba(3, 52, 112, 0.9) 1px 0 10px;;
-}
-
-.filters{
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2.5vh;
-    grid-template-rows: 50%;
-    grid-template-columns: 32% 32% 32%;
-    margin-left: 20%;
-    margin-right: 20%;
-    gap:15px;
-}
-
-.filterButton
-{
-    background-color: #c0c0c080;
-    color: black;
-    font-size: 3vh;
-    height: 5vh;
-    text-align: center;
-    border: 3px solid gray;
-    outline: 2px solid #0077B6;
-    outline-offset: 0.5px;
-    outline-style:double;
-    border-radius: 5px;
-}
-
-.senatorsList
-{
-
-    text-align: center;
+    width: 96.0vw;
+    padding: 2.0vw;
 }
 
 .mainTable
 {
-    margin-left: 20%;
-    margin-right: 20%;
-    width:60%;
-    border-spacing: 0px; 
+    width: 100%;
+    border-collapse: collapse;
+    border: 0.2vmin solid #93e2ff;
+    box-shadow: 0 0 2vmin #000000a5;
 }
+
 
 .tableHeadRow
 {
     text-align: center;
-    background-color: #0077B6;
-    height: 4vh;
+    background-color: rgba(6, 99, 199, 0.3);
+    height: 7.0vmax;
 }
 
 .tableHeadRow th
 {
-    font-size: x-large;
-    font-weight: bolder;
-    color:black; 
+    font-size: 3.0vw;
+    color: #ad1940;
+    text-shadow: rgb(255 169 169) 0.1vw 0.1vw 0vw;
 }
 
 .mainTable .info
 {
-    font-weight: bolder;
-    text-align: center;
-    background-color: red;/* can be changed later*/
+    background-color: rgba(173, 25, 64, 0.3);
 }
 
 .info td
 {
-    color: black;
+    font-size: 1.5vw;
+    text-align: center;
+    color: #93e2ff;
+    padding: 1.0vw;
 }

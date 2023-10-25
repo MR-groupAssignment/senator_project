@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch(jsonFile)
                 .then(response => response.json())
                 .then(data => {
-                    arrayOfColors = ['rgb(179, 25, 66)', 'rgb(10, 49, 97)', 'purple'];
+                    arrayOfColors = ['rgb(10, 49, 97)', 'rgb(179, 25, 66)', 'purple'];
                     const contentName = document.createElement('div');
                     const contentTitle = document.createElement('div');
                     

@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="./senator.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500&family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500&family=Ubuntu&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>US Senators</title>
 </head>
@@ -26,9 +27,10 @@
 
     <main class="mainContent">
         <div class="entryVideo">
-            <video src="./videos/Virtual U.S. Capitol Tour.mp4" ></video>
+            <video src="./videos/Virtual U.S. Capitol Tour.mp4"></video>
             <div class="videoLayer">
-                <p class="videoText"><span style="color: #023E8A;">United</span> <span style="color: #ad1940">States</span></p>
+                <p class="videoText"><span style="color: #023E8A;">United</span> <span
+                        style="color: #ad1940">States</span></p>
                 <div class="videoControls">
                     <i class="play fa fa-play"></i>
                 </div>
@@ -46,7 +48,7 @@
             <script src="./slidingImage.js"></script>
         </div>
 
-        
+
         <div class="tabs">
             <button class="tabButton" name="republicBtn">Republicans</button>
             <button class="tabButton" name="democratBtn">Democrats</button>
@@ -57,48 +59,51 @@
         <script src="./tabOfParties.js"></script>
     </main>
 
-    <div>
+    <div class="tableCover">
 
-        <h1 class="tableHeading"> Senators</h1>
+        <h1 class="tableHeading">Senate Members</h1>
 
-        <div class="filters">
+        <div class="filterWrapper">
             <!-- add onchange to each select -->
-            <select class="filterButton" id="partyFilter" onchange="ApplyFilters()">
-                <option value="">Party(Show All)</option>
-            </select>
-    
-            <select class="filterButton" name="" id="stateFilter" onchange="ApplyFilters()">
-                <option value="">State(Show All)</option>
-            </select>
-            
-            <select class="filterButton" name="" id="rankFilter" onchange="ApplyFilters()">
-                <option value="">Rank(Show All)</option>
-            </select>
+            <div class="partFilter filter">
+                <p>Party</p>
+                <select class="filterButton" id="partyFilter" onchange="ApplyFilters()" form="carform">
+                    <option selected value="">Select</option>
+                </select>
+            </div>
+
+            <div class="stateFlter filter">
+                <p>State</p>
+                <select class="filterButton" name="" id="stateFilter" onchange="ApplyFilters()">
+                    <option selected value="">Select</option>
+                </select>
+            </div>
+
+            <div class="rankFilter filter">
+                <p>Rank</p>
+                <select class="filterButton" name="" id="rankFilter" onchange="ApplyFilters()">
+                    <option selected value="">Select</option>
+                </select>
+            </div>
         </div>
 
-        <table class ="mainTable">
-            <thead>
-                <tr class="tableHeadRow">
-                    <th>Name</th>
-                    <th>Party</th>
-                    <th>State</th>
-                    <th>Gender</th>
-                    <th>Rank</th>
-                </tr>
-            </thead>
-        </table>
+        <div class="tableWrapper">
+            <table class="mainTable">
+                <thead>
+                    <tr class="tableHeadRow">
+                        <th>Name</th>
+                        <th>Party</th>
+                        <th>State</th>
+                        <th>Gender</th>
+                        <th>Rank</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         <script src="./senator_data.js"></script>
     </div>
 
-    
-
-
-
-
-
     <footer class="foot">
-
-    </footer>
 
     </footer>
 

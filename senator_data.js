@@ -1,6 +1,5 @@
 
 async function GetJsonData() {
-    var senatorTableData = [[]];
     var uniqueParties = [];
     const jsonfile = './senators.json';
 
