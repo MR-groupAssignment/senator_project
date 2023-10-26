@@ -26,14 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 if (element.classList.contains('percentRepublic') && countRepub === 0) {
                     countRepub++;
-                    percentRepublic.style.cssText = 'text-align: center; font-size: 3.0vw; color: #ad1940; text-shadow: rgb(255 169 169) 0.1vw 0.1vw 0vw;';
+                    percentRepublic.style.cssText = 'text-align: center; font-size: 5.0vw; color: #ad1940; text-shadow: rgb(255 169 169) 0.2vw 0.1vw 0vw;';
                     percentRepublic.innerHTML +=`${(countRepublic / data.objects.length) * 100}%<br>`;
-                    percentRepublic.innerHTML += `Majority Republican<br>`;
+                    percentRepublic.innerHTML += `Majority Republicans<br>`;
                     percentRepublic.innerHTML += `Total ${countRepublic} Members`;
                 } 
                 else if (element.classList.contains('percentDemocrat') && countDemo === 0) {
                     countDemo++;
-                    percentDemocrat.style.cssText = 'text-align: center; font-size: 3.0vw; color: #023E8A; text-shadow: #b8e6ff 0.1vw 0.1vw 0vw;';
+                    percentDemocrat.style.cssText = 'text-align: center; font-size: 5.0vw; color: #023E8A; text-shadow: #b8e6ff 0.2vw 0.1vw 0vw;';
                     percentDemocrat.innerHTML +=`${(countDemocrat / data.objects.length) * 100}%<br>`;
                     percentDemocrat.innerHTML += `Majority Democrat<br>`;
                     percentDemocrat.innerHTML += `Total ${countDemocrat} Members`;

@@ -16,6 +16,7 @@
 
 .head h1{
     font-size: 4.0vw;
+    text-shadow: 0.1vw 0.1vw 0.4vw #000000ba;
 }
 
 .navBar{
@@ -28,16 +29,21 @@
 .navBar a{
     text-decoration: none;
     font-size: 1.5vw;
+    text-shadow: 0.1vw 0.1vw 0.4vw #000000ba;
     padding: 1.0vw;
     min-width: 5.0vw;
     text-align: center;
-}
 
-.navBar a:hover{
-    background-color: #0077B6;
-    color: white;
-    border-radius: 0.2vw;
-    transform: scale(1.1);
+    &:hover{
+        background-color: #0077B6;
+        color: white;
+        border-radius: 0.2vw;
+        transform: scale(1.1);
+    }
+
+    &:active{
+        transform: scale(0.9);
+    }
 }
 
 .entryVideo{
@@ -77,15 +83,16 @@
     position: relative;
     font-size: 5.0vw;
     text-align: center;
-    text-shadow: #000000 0.2vw 0.2vw 0.2vw;
+    padding: 1.0vw;
+    text-shadow: #000000 0.2vw 0.0vw 0.3vw;
     white-space: nowrap;
     overflow: hidden;
     max-width: fit-content;
     animation: appear 3s 0s linear;
-}
 
-.videoText:hover{
-    transform: scale(1.1);
+    &:hover{
+        transform: scale(1.1);
+    }
 }
 
 .videoControls{
@@ -97,17 +104,16 @@
 .videoControls i{
     font-size: 10.0vw;
     color: #023E8A;
-    text-shadow: #000000 0.2vw 0.2vw 0.2vw;
+    text-shadow: #000000 0.4vw 0.0vw 0.3vw;
     cursor: pointer;
-}
 
-.videoControls i:hover{
-    transform: scale(1.1);
-}
+    &:hover{
+        transform: scale(1.1);
+    }
 
-.videoControls i:active{
-    text-shadow: #000000 -0.2vw 0.2vw 0.2vw;
-    transform: scale(0.9);
+    &:active{
+        transform: scale(0.9);
+    }
 }
 
 .imageSlider {
@@ -176,12 +182,7 @@
 
 }
 
-.percentRepublic {
-    width: 50vw;
-    height: 50vw;
-}
-
-.percentDemocrat {
+.percentRepublic, .percentDemocrat {
     width: 50vw;
     height: 50vw;
 }
@@ -204,7 +205,8 @@
     flex: 1;
     text-align: center;
     color: #515151;
-    font-size: 3.0vw;
+    text-shadow: #5151518a 0.2vw 0.2vw 0.4vw;
+    font-size: 4.0vw;
     padding: 1.0vh 1.0vw;
     height: 7.0vmax;
     border: none;
@@ -342,10 +344,11 @@ footer{
     align-items: center;
     justify-content: center;
     gap: 2.0vw;
-    height: 20.0vmax;
+    /* height: 10.0vh; */
     width: 96.0vw;
     padding: 2.0vw;
-    background-color: #b0294d;
+    background: rgb(171,32,72);
+    background: linear-gradient(180deg, rgba(171,32,72,1) 62%, rgba(255,0,0,1) 100%);
 }
 
 .memberSummary{
@@ -356,7 +359,11 @@ footer{
 }
 
 .memberSummaryName{
-    font-size: 1.5vw;
+    font-size: 2vw;
+}
+
+.memberSummaryDesc{
+    font-size: 1.0vw;
 }
 
 .switchMember{
@@ -377,6 +384,10 @@ footer{
     border-radius: 0.3vmax;
     cursor: pointer;
     box-shadow: #4e4e4ecc 0.2vw 0.2vw 0.2vw;
+
+    &:hover{
+        transform: scale(1.1);
+    }
 
     &:active{
         text-shadow: #000000 -0.2vw 0.2vw 0.2vw;
@@ -400,7 +411,7 @@ footer{
     display: flex;
     align-items: center;
     gap: 1.0vw;
-    font-size: 2.0vmax;
+    font-size: 2.0vw;
     text-shadow: #4e4e4ecc 0.2vw 0.2vw 0.2vw;
     cursor: pointer;
 
@@ -409,13 +420,12 @@ footer{
     }
 
     &:active{
-        text-shadow: #ffffff7d -0.2vw 0.2vw 0.2vw;
         transform: scale(0.9);
     }
 }
 
 .socialLinks i span{
-    font-size: 1.0vmax;
+    font-size: 1.0vw;
     text-shadow: #4e4e4ecc 0.2vw 0.2vw 0.2vw;
     cursor: pointer;
 }
