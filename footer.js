@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     summaryName.textContent = data[name].Name;
                     summary.textContent = data[name].Summary;
                     for(i = 0; i < socialLinks.length; i++) {
-                        console.log(data[name].Social[i].URL);
-                        console.log(data[name].Social[i].Name);
                         socialLinks[i].href = data[name].Social[i].URL;
                         socialNames[i].textContent = data[name].Social[i].Name;
                     }
