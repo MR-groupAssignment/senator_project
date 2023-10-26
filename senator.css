@@ -289,12 +289,6 @@
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.filterButton option
-{
-    background-color: #074f76;
-    font-weight: bolder;
-}
-
 .senatorsList
 {
     text-align: center;
@@ -332,14 +326,9 @@
     text-shadow: rgb(255 169 169) 0.1vw 0.1vw 0vw;
 }
 
-.mainTable .info
+.mainTable
 {
     background-color: rgba(173, 25, 64, 0.3);
-}
-
-.info:hover
-{
-    border: 5px solid white;
 }
 
 .info td
@@ -350,6 +339,15 @@
     padding: 1.0vw;
 }
 
+.info{
+    &:hover{
+        background-color: #ad1940;
+    }
+
+    &:active{
+        transform: scale(0.9);
+    }
+}
 
 footer{
     display: flex;
