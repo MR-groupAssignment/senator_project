@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const name = element.id === "musaddique" ? "Musaddique" : "Ritwik";
                     summaryName.textContent = data[name].Name;
                     summary.textContent = data[name].Summary;
-                    for(i = 0; i < socialLinks.length; i++) {
+                    for(let i = 0; i < socialLinks.length; i++) {
                         socialLinks[i].href = data[name].Social[i].URL;
                         socialNames[i].textContent = data[name].Social[i].Name;
                     }
