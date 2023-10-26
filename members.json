@@ -1,0 +1,46 @@
+{
+   "Musaddique": {
+       "Name": "Mohammed Musaddique",
+       "Summary": "lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+       "Social": [
+           {
+               "Name": "musaddique333",
+               "URL": "https://github.com/musaddique333"
+           },
+           {
+               "Name": "Mohammed Musaddique",
+               "URL": "https://www.linkedin.com/in/mohammed-musaddique-a05313227/"
+           },
+           {
+               "Name": "musaddique333",
+               "URL": "https://twitter.com/musaddique333"
+           },
+           {
+               "Name": "Mohammed Musaddique",
+               "URL": "www.facebook.com/mohammed.musaddique.90/"
+           }
+       ]
+   },
+   "Ritwik": {
+       "Name": "Ritwik Agarwal",
+       "Summary": "I am a 3rd year student at IIT Kharagpur. I am a full stack developer...",
+       "Social": [
+           {
+               "Name": "Ritwik-Ritz",
+               "URL": "https://github.com/Ritwik-Ritz"
+           },
+           {
+               "Name": "Ritwik Agarwal",
+               "URL": "https://www.linkedin.com/in/ritwik-agarwal-522003160/"
+           },
+           {
+               "Name": "ritwik_ra1110",
+               "URL": "https://twitter.com/ritwik_ra1110"
+           },
+           {
+               "Name": "Ritwik Agarwal",
+               "URL": "https://www.facebook.com/ritwik.agarwal.710/"
+           }
+       ]
+   }
+}

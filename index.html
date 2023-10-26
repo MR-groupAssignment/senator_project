@@ -19,9 +19,9 @@
             <h1>U.S.A Senators</h1>
         </div>
         <nav class="navBar">
-            <a href="#">Leaders</a>
-            <a href="#">Members</a>
-            <a href="#">About us</a>
+            <a href="#leaders">Leaders</a>
+            <a href="#membertabs">Members</a>
+            <a href="#footer">About us</a>
         </nav>
     </header>
 
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="imageSlider">
+        <div class="imageSlider" id="leaders">
             <div class="imagesOfLogos">
                 <img src="./images/republican.png" alt="republican image" class="imageRepublic">
                 <img src="./images/democrat.png" alt="democrat image" class="imageDemocrat">
@@ -49,64 +49,84 @@
         </div>
 
 
-        <div class="tabs">
-            <button class="tabButton" name="republicBtn">Republicans</button>
-            <button class="tabButton" name="democratBtn">Democrats</button>
-            <button class="tabButton" name="independentBtn">Independent</button>
+        <div id="membertabs">
+            <div class="tabs">
+                <button class="tabButton" name="republicBtn">Republicans</button>
+                <button class="tabButton" name="democratBtn">Democrats</button>
+                <button class="tabButton" name="independentBtn">Independent</button>
+            </div>
+            <div class="description">
+            </div>
         </div>
-        <div class="description">
-        </div>
+
         <script src="./tabOfParties.js"></script>
+
+        <div class="tableCover">
+
+            <h1 class="tableHeading">Senate Members</h1>
+
+            <div class="filterWrapper">
+                <!-- add onchange to each select -->
+                <div class="partFilter filter">
+                    <p>Party</p>
+                    <select class="filterButton" id="partyFilter" onchange="ApplyFilters()" form="carform">
+                        <option selected value="">Select</option>
+                    </select>
+                </div>
+
+                <div class="stateFlter filter">
+                    <p>State</p>
+                    <select class="filterButton" name="" id="stateFilter" onchange="ApplyFilters()">
+                        <option selected value="">Select</option>
+                    </select>
+                </div>
+
+                <div class="rankFilter filter">
+                    <p>Rank</p>
+                    <select class="filterButton" name="" id="rankFilter" onchange="ApplyFilters()">
+                        <option selected value="">Select</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="tableWrapper">
+                <table class="mainTable">
+                    <thead>
+                        <tr class="tableHeadRow">
+                            <th>Name</th>
+                            <th>Party</th>
+                            <th>State</th>
+                            <th>Gender</th>
+                            <th>Rank</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <script src="./senator_data.js"></script>
+        </div>
     </main>
 
-    <div class="tableCover">
-
-        <h1 class="tableHeading">Senate Members</h1>
-
-        <div class="filterWrapper">
-            <!-- add onchange to each select -->
-            <div class="partFilter filter">
-                <p>Party</p>
-                <select class="filterButton" id="partyFilter" onchange="ApplyFilters()" form="carform">
-                    <option selected value="">Select</option>
-                </select>
-            </div>
-
-            <div class="stateFlter filter">
-                <p>State</p>
-                <select class="filterButton" name="" id="stateFilter" onchange="ApplyFilters()">
-                    <option selected value="">Select</option>
-                </select>
-            </div>
-
-            <div class="rankFilter filter">
-                <p>Rank</p>
-                <select class="filterButton" name="" id="rankFilter" onchange="ApplyFilters()">
-                    <option selected value="">Select</option>
-                </select>
-            </div>
+    <footer class="footer" id="footer">
+        <div class="switchMember">
+            <button id="musaddique">Musaddique</button>
+            <button id="ritwik">Ritwik</button>
         </div>
-
-        <div class="tableWrapper">
-            <table class="mainTable">
-                <thead>
-                    <tr class="tableHeadRow">
-                        <th>Name</th>
-                        <th>Party</th>
-                        <th>State</th>
-                        <th>Gender</th>
-                        <th>Rank</th>
-                    </tr>
-                </thead>
-            </table>
+        <div class="memberSummary">
+            <p class="memberSummaryName"></p>
+            <p class="memberSummaryDesc"></p>
         </div>
-        <script src="./senator_data.js"></script>
-    </div>
-
-    <footer class="foot">
-
+        <div class="socialLinks">
+            <a href="" class="github"><i class="fa fa-github" aria-hidden="true"
+                    style="color: #171515;"><span></span></i></a>
+            <a href="" class="linkedin"><i class="fa fa-linkedin" aria-hidden="true"
+                    style="color: #0072b1;"><span></span></i></a>
+            <a href="" class="twitter"><i class="fa fa-twitter" aria-hidden="true"
+                    style="color: #00acee;"><span></span></i></a>
+            <a href="" class="facebook"><i class="fa fa-facebook" aria-hidden="true"
+                    style="color:  #3b5998;"><span></span></i></a>
+        </div>
     </footer>
-
+    <script src="./footer.js"></script>
     <!-- <script src="./senator_data.js"></script> -->
 
 </body>
