@@ -1,3 +1,5 @@
+import data from "./members.json" assert { type: "json" };
+
 document.addEventListener("DOMContentLoaded", function () {
     const summaryName = document.querySelector(".memberSummaryName");
     const summary = document.querySelector(".memberSummaryDesc");
@@ -7,19 +9,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     switcher.forEach(element => {
         element.addEventListener("click", () => {
-            fetch("./members.json")
-                .then(response => response.json())
-                .then(data => {
+            // fetch("./members.json")
+                // .then(response => response.json())
+                // .then(data => {
                     const name = element.id === "musaddique" ? "Musaddique" : "Ritwik";
                     summaryName.textContent = data[name].Name;
                     summary.textContent = data[name].Summary;
-                    for(i = 0; i < socialLinks.length; i++) {
+                    for(let i = 0; i < socialLinks.length; i++) {
                         console.log(data[name].Social[i].URL);
                         console.log(data[name].Social[i].Name);
                         socialLinks[i].href = data[name].Social[i].URL;
                         socialNames[i].textContent = data[name].Social[i].Name;
                     }
-                });
+                // });
         });
     });
     switcher[0].click();
