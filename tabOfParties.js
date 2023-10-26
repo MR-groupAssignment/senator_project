@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             clearTabButtonColors(tabButtons);
             content.innerHTML = "";
 
-            fetch(jsonFile)
+            fetch(jsonFile,{mode:'cors'})
                 .then(response => response.json())
                 .then(data => {
                     arrayOfColors = ['rgb(10, 49, 97)', 'rgb(179, 25, 66)', 'purple'];

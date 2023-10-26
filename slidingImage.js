@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let countRepub = 0;
         let countDemo = 0;
         element.addEventListener('mouseover', function() {
-            fetch(jsonFile)
+            fetch(jsonFile,{mode:'cors'})
             .then(response => response.json())
             .then(data => {
                 let countRepublic = 0;

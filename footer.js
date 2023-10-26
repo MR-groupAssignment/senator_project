@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     switcher.forEach(element => {
         element.addEventListener("click", () => {
-            fetch("./members.json")
+            fetch("./members.json",{mode:'cors'})
                 .then(response => response.json())
                 .then(data => {
                     const name = element.id === "musaddique" ? "Musaddique" : "Ritwik";
