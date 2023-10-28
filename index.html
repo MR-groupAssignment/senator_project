@@ -21,6 +21,7 @@
         <nav class="navBar">
             <a href="#leaders">Leaders</a>
             <a href="#membertabs">Members</a>
+            <a href="#senatorsList">Senators</a>
             <a href="#footer">About us</a>
         </nav>
     </header>
@@ -89,7 +90,7 @@
                 </div>
             </div>
 
-            <div class="tableWrapper">
+            <div class="tableWrapper" id="senatorsList">
                 <table class="mainTable">
                     <thead>
                         <tr class="tableHeadRow">
@@ -127,8 +128,19 @@
         </div>
     </footer>
     <script src="./footer.js"></script>
-    <!-- <script src="./senator_data.js"></script>  -->
+    <div class="senatorDetailsTableWrapper">
+        <div class="senatorDetailsTop">
+            <button onclick="closeInfoWindow()" class="close">
+                Close
+            </button>
+            <img class="senateImage" src="" alt="">
+        </div>
+        <div class="senatorDetailsWrapper">
+            <table class="senatorDetails">
 
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>

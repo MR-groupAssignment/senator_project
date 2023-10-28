@@ -5,7 +5,25 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
-.head{
+
+
+/* https://www.digitalocean.com/community/tutorials/css-scrollbars */
+
+*::-webkit-scrollbar {
+    width: 1.5vmin;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ad1940;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #023d8a;
+    border-radius: 20px;
+    border: 0.5vmin solid #ad1940;
+}
+
+.head {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,19 +32,19 @@
     height: 5.0vmax;
 }
 
-.head h1{
+.head h1 {
     font-size: 4.0vw;
     text-shadow: 0.1vw 0.1vw 0.4vw #000000ba;
 }
 
-.navBar{
+.navBar {
     display: flex;
     align-items: center;
     justify-content: space-around;
     gap: 1.0vw;
 }
 
-.navBar a{
+.navBar a {
     text-decoration: none;
     font-size: 1.5vw;
     text-shadow: 0.1vw 0.1vw 0.4vw #000000ba;
@@ -34,19 +52,19 @@
     min-width: 5.0vw;
     text-align: center;
 
-    &:hover{
+    &:hover {
         background-color: #0077B6;
         color: white;
         border-radius: 0.2vw;
         transform: scale(1.1);
     }
 
-    &:active{
+    &:active {
         transform: scale(0.9);
     }
 }
 
-.entryVideo{
+.entryVideo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,12 +73,12 @@
     position: relative;
 }
 
-.entryVideo video{
+.entryVideo video {
     width: 100.0vw;
     height: 100%;
 }
 
-.videoLayer{
+.videoLayer {
     position: absolute;
     display: flex;
     align-items: center;
@@ -79,7 +97,7 @@
     }
 }
 
-.videoText{
+.videoText {
     position: relative;
     font-size: 5.0vw;
     text-align: center;
@@ -90,28 +108,28 @@
     max-width: fit-content;
     animation: appear 3s 0s linear;
 
-    &:hover{
+    &:hover {
         transform: scale(1.1);
     }
 }
 
-.videoControls{
+.videoControls {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.videoControls i{
+.videoControls i {
     font-size: 10.0vw;
     color: #023E8A;
     text-shadow: #000000 0.4vw 0.0vw 0.3vw;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
         transform: scale(1.1);
     }
 
-    &:active{
+    &:active {
         transform: scale(0.9);
     }
 }
@@ -172,7 +190,8 @@
     position: absolute;
 }
 
-.percentDemocrat, .percentRepublic {
+.percentDemocrat,
+.percentRepublic {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -182,7 +201,8 @@
 
 }
 
-.percentRepublic, .percentDemocrat {
+.percentRepublic,
+.percentDemocrat {
     width: 50vw;
     height: 50vw;
 }
@@ -195,13 +215,13 @@
     background-color: rgba(179, 25, 66, 0.5);
 }
 
-.tabs{
+.tabs {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.tabButton{
+.tabButton {
     flex: 1;
     text-align: center;
     color: #515151;
@@ -212,7 +232,7 @@
     border: none;
 }
 
-.description{
+.description {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -222,7 +242,7 @@
 }
 
 /*ritwik edits - 24/10*/
-.tableCover{
+.tableCover {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -232,8 +252,7 @@
     background-size: cover;
 }
 
-.tableHeading
-{
+.tableHeading {
     text-align: center;
     font-size: 5.0vw;
     color: #ad1940;
@@ -241,7 +260,7 @@
     margin-top: 2.0vh;
 }
 
-.filterWrapper{
+.filterWrapper {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -250,7 +269,7 @@
     gap: 1.0vw;
 }
 
-.filter{
+.filter {
     flex: 1;
     display: flex;
     align-items: center;
@@ -259,13 +278,13 @@
     gap: 1.0vw;
 }
 
-.filter p{
+.filter p {
     font-size: 2.0vw;
     color: #93e2ff;
-    text-shadow: rgba(1, 1, 1, 0.9) 0.2vw 0.1vw 0vw;
+    text-shadow: rgba(1, 1, 1, 0.9) 0.2vw 0.2vw 0.2vw;
 }
 
-.filter .filterButton{
+.filter .filterButton {
     display: flex;
     margin: 0 auto;
     font-size: 2.0vw;
@@ -285,17 +304,18 @@
     background-size: 4.0vw;
 }
 
-.filterButton:hover{
+.filterButton:hover {
     background-color: rgba(255, 255, 255, 0.5);
+    color: #ad1940;
+    background-image: url("./images/up-arrow-svgrepo-com.svg");
+    transition: all 0.3s ease-in-out;
 }
 
-.senatorsList
-{
+.senatorsList {
     text-align: center;
 }
 
-.tableWrapper
-{
+.tableWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -303,8 +323,7 @@
     padding: 2.0vw;
 }
 
-.mainTable
-{
+.mainTable {
     width: 100%;
     border-collapse: collapse;
     border: 0.2vmin solid #93e2ff;
@@ -312,44 +331,41 @@
 }
 
 
-.tableHeadRow
-{
+.tableHeadRow {
     text-align: center;
     background-color: rgba(6, 99, 199, 0.3);
     height: 7.0vmax;
 }
 
-.tableHeadRow th
-{
+.tableHeadRow th {
     font-size: 3.0vw;
     color: #ad1940;
-    text-shadow: rgb(255 169 169) 0.1vw 0.1vw 0vw;
+    text-shadow: rgba(1, 1, 1, 0.9) 0.2vw 0.2vw 0.2vw;
 }
 
-.mainTable
-{
+.mainTable {
     background-color: rgba(173, 25, 64, 0.3);
 }
 
-.info td
-{
+.info td {
     font-size: 1.5vw;
     text-align: center;
     color: #93e2ff;
+    text-shadow: rgba(1, 1, 1, 0.9) 0.2vw 0.2vw 0.2vw;
     padding: 1.0vw;
 }
 
-.info{
-    &:hover{
+.info {
+    &:hover {
         background-color: #ad1940;
     }
 
-    &:active{
+    &:active {
         transform: scale(0.9);
     }
 }
 
-footer{
+footer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -357,26 +373,26 @@ footer{
     /* height: 10.0vh; */
     width: 96.0vw;
     padding: 2.0vw;
-    background: rgb(171,32,72);
-    background: linear-gradient(180deg, rgba(171,32,72,1) 62%, rgba(255,0,0,1) 100%);
+    background: rgb(171, 32, 72);
+    background: linear-gradient(180deg, rgba(171, 32, 72, 1) 62%, rgba(255, 0, 0, 1) 100%);
 }
 
-.memberSummary{
+.memberSummary {
     flex: 3;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.memberSummaryName{
+.memberSummaryName {
     font-size: 2vw;
 }
 
-.memberSummaryDesc{
+.memberSummaryDesc {
     font-size: 1.0vw;
 }
 
-.switchMember{
+.switchMember {
     flex: 1;
     display: flex;
     align-items: center;
@@ -385,7 +401,7 @@ footer{
     gap: 1.0vw;
 }
 
-.switchMember button{
+.switchMember button {
     font-size: 1.0vw;
     width: 15.0vw;
     height: 3.0vw;
@@ -395,17 +411,17 @@ footer{
     cursor: pointer;
     box-shadow: #4e4e4ecc 0.2vw 0.2vw 0.2vw;
 
-    &:hover{
+    &:hover {
         transform: scale(1.1);
     }
 
-    &:active{
+    &:active {
         text-shadow: #000000 -0.2vw 0.2vw 0.2vw;
         transform: scale(0.9);
     }
 }
 
-.socialLinks{
+.socialLinks {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -413,11 +429,11 @@ footer{
     gap: 1.0vw;
 }
 
-.socialLinks a{
+.socialLinks a {
     text-decoration: none;
 }
 
-.socialLinks i{
+.socialLinks i {
     display: flex;
     align-items: center;
     gap: 1.0vw;
@@ -425,17 +441,86 @@ footer{
     text-shadow: #4e4e4ecc 0.2vw 0.2vw 0.2vw;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
         transform: scale(1.1);
     }
 
-    &:active{
+    &:active {
         transform: scale(0.9);
     }
 }
 
-.socialLinks i span{
+.socialLinks i span {
     font-size: 1.0vw;
     text-shadow: #4e4e4ecc 0.2vw 0.2vw 0.2vw;
     cursor: pointer;
+}
+
+.senatorDetailsTableWrapper {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.0vw;
+    position: fixed;
+    top: 10.0vh;
+    left: 10.0vw;
+    width: 70.0vw;
+    height: 70.0vh;
+    padding: 5.0vh 5.0vw;
+    background-color: rgba(2, 61, 138, 0.8);
+    border-radius: 1.0vmax;
+}
+
+.senatorDetailsTop{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.0vw;
+}
+
+.senateImage{
+    width: 20.0vmin;
+    box-shadow: #000000cc 0.4vw 0.4vw 0.8vw;
+}
+
+.senatorDetailsWrapper {
+    width: 70.0vw;
+    z-index: 2;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.senatorDetails {
+    margin: auto;
+    font-size: 1.5vw;
+}
+
+.senateRow{
+    padding: 1.0vh 1.0vw;
+    text-shadow: #00000093 0.2vw 0.2vw 0.2vw;
+}
+
+.senateInfo{
+    color: #c30d3d;
+}
+
+
+
+.close {
+    width: 100%;
+    padding: 1.0vw;
+    border-radius: 0.2vmax;
+    border: none;
+    background-color: #ad1940;
+    font-size: 1.0vw;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #ad1940;
+        transform: scale(1.1);
+        border: solid 0.1vmax #ad1940;
+        transition: all 0.1s ease-in-out;
+    }
 }

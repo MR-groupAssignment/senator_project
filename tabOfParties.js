@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const contentName = document.createElement('div');
                     const contentTitle = document.createElement('div');
                     
-                    content.style.cssText = "font-size: 3.0vw; min-height: 35.0vmin";
+                    content.style.cssText = "font-size: 3.0vw;";
                     contentName.style.cssText = "flex: 1; text-align: right; padding: 2.0vh 2.0vw;";
                     contentTitle.style.cssText = "flex: 2; text-align: left; white-space: nowrap; overflow: auto; padding: 2.0vh 2.0vw;";
 
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         content.appendChild(contentName);
                     }
                     button.style.color = "#CAF0F8";
-                    content.animate([{height: '0vmax'}, {height: '55.0vmax'}], {duration: 1500, fill: 'forwards', delay: 0});
+                    content.animate([{height: '0vmax'}, {height: '55.0vmax'}], {duration: 3000, fill: 'forwards', delay: 0});
                 });
         });
     });

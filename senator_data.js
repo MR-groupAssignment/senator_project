@@ -1,3 +1,5 @@
+let body = document.querySelector('body');
+let main = document.querySelector('main');
 
 async function GetJsonData() {
     var uniqueParties = [];
@@ -39,12 +41,11 @@ async function GetJsonData() {
 
 function FillTableData(data, uniqueParties) {
     var table = document.getElementsByClassName("mainTable")[0];
-    var counter = 0;
     for (var j = 0; j < uniqueParties.length; j++) {
         for (var dt = 0; dt < data.objects.length; dt++) {
             if (data.objects[dt].party == uniqueParties[j]) {
 
-                senatorInfo = "<tr class=\"info\" onclick=\"GetSenatorDetails(" + dt + ")\">" + "<td>" + data.objects[dt].person.firstname + " " + data.objects[dt].person.lastname + "</td>" + "<td>" + data.objects[dt].party + "</td>" + "<td>" + data.objects[dt].state + "</td>" + "<td>" + data.objects[dt].person.gender_label + "</td>" + "<td>" + data.objects[dt].senator_rank_label + "</td>" + "</tr></tbody>";
+                senatorInfo = "<tr class=\"info\" onclick=\"GetSenatorDetails(" + dt + ")\">" + "<td>" + data.objects[dt].person.firstname + " " + data.objects[dt].person.lastname + "</td>" + "<td>" + data.objects[dt].party + "</td>" + "<td>" + data.objects[dt].state + "</td>" + "<td>" + data.objects[dt].person.gender_label + "</td>" + "<td>" + data.objects[dt].senator_rank_label + "</td>" + "</tr>";
 
                 table.innerHTML += senatorInfo;
             }
@@ -65,8 +66,7 @@ function ApplyFilters() {
         var partyCell = tableDataArray[1].innerHTML.toLowerCase();
         var stateCell = tableDataArray[2].innerHTML.toLowerCase();
         var rankCell = tableDataArray[4].innerHTML.toLowerCase();
-
-        if (partyCell.indexOf(party)> -1 && stateCell.indexOf(state)> -1 && rankCell.indexOf(rank)>-1)
+        if (partyCell.indexOf(party) !== -1 && stateCell.indexOf(state) !== -1 && rankCell.indexOf(rank) !==-1)
         {
             informationRows[i].style.display = "";
         }
@@ -114,7 +114,128 @@ function AddRankFilterValues(uniqueRanks)
 
 function GetSenatorDetails(index)
 {
+    main.style.filter = 'blur(5px)';
+    let wrapper = document.querySelector('.senatorDetailsTableWrapper');
+    let senateImage = document.querySelector('.senateImage');
+    wrapper.style.display = 'flex';
+    fetch('./senators.json')
+    .then(response => response.json())
+    .then(data => {
+        let table = document.querySelector('.senatorDetails');
+        table.innerHTML = '';
 
+        let tr = document.createElement('tr');
+        let td1 = document.createElement('td');
+        td1.classList.add('senateInfo');
+        td1.classList.add('senateRow');
+        let td2 = document.createElement('td');
+        td2.classList.add('senateRow');
+        senateImage.src = ``;
+        senateImage.src = `https://www.govtrack.us/static/legislator-photos/${data.objects[index].person.link.split("/")[6]}-200px.jpeg`;
+
+        td1.innerHTML = `Name`
+        td2.innerHTML = `${data.objects[index].title} ${data.objects[index].person.firstname} ${data.objects[index].person.middlename} ${data.objects[index].person.lastname}`;
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Leadership Title`
+        td2.innerHTML = `${data.objects[index].leadership_title}` == "null" ? `None` : `${data.objects[index].leadership_title}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML;
+
+        td1.innerHTML = `Description`
+        td2.innerHTML = `${data.objects[index].description}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Party`
+        td2.innerHTML = `${data.objects[index].party}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `State`
+        td2.innerHTML = `${data.objects[index].state}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Rank`
+        td2.innerHTML = `${data.objects[index].senator_rank_label} ${data.objects[index].senator_class_label}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Start Date`
+        td2.innerHTML = `${data.objects[index].startdate}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `End Date`
+        td2.innerHTML = `${data.objects[index].enddate}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Address`
+        td2.innerHTML = `${data.objects[index].extra.address}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Contact Form`
+        td2.innerHTML = `<a style="text-decoration:none" target="_blank" href="${data.objects[index].extra.contact_form}">${data.objects[index].extra.contact_form}</a>`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Fax`
+        td2.innerHTML = `${data.objects[index].extra.fax}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+
+        td1.innerHTML = `Nickname`
+        td2.innerHTML = `${data.objects[index].person.nickname}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Gender`
+        td2.innerHTML = `${data.objects[index].person.gender_label}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Birthday`
+        td2.innerHTML = `${data.objects[index].person.birthday}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Twitter`
+        td2.innerHTML = `${data.objects[index].person.twitterid}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Youtube`
+        td2.innerHTML = `${data.objects[index].person.youtubeid}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Phone`
+        td2.innerHTML = `${data.objects[index].phone}`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `Website`
+        td2.innerHTML = `<a style="text-decoration:none" target="_blank" href="${data.objects[index].website}">${data.objects[index].website}</a>`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+
+        td1.innerHTML = `For More Info`
+        td2.innerHTML = `<a style="text-decoration:none" target="_blank" href="${data.objects[index].person.link}">${data.objects[index].person.link}</a>`
+        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+        table.innerHTML += tr.outerHTML
+    })
+}
+
+function closeInfoWindow()
+{
+    main.style.filter = 'none';
+    let wrapper = document.querySelector('.senatorDetailsTableWrapper');
+    wrapper.style.display = 'none';
 }
 
 GetJsonData();
