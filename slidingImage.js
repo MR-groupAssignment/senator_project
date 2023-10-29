@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const video = document.querySelector('.entryVideo video');
     const playButton = document.querySelector('.play');
     const videoText = document.querySelector('.videoText');
+    const videoLayer = document.querySelector('.videoLayer');
 
     const jsonFile = './senators.json';
 
@@ -51,13 +52,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    playButton.addEventListener('click', function() {
+    function changeVideo() {
         if (video.paused) {
             video.play();
             playButton.style.opacity = '0';
+            console.log("i am in if")
         } else {
             video.pause();
             playButton.style.opacity = '1';
+            console.log("i am in else")
         }
         videoText.animate([
             {width: '0%'},
@@ -66,22 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: 1000,
             fill: 'forwards'
         });
-    });
+    }
 
     video.addEventListener('click', function() {
-        if (video.paused) {
-            video.play();
-            playButton.style.opacity = '0';
-        } else {
-            video.pause();
-            playButton.style.opacity = '1';
-        }
-        videoText.animate([
-            {width: '0%'},
-            {width: '100%'}
-        ], {
-            duration: 1000,
-            fill: 'forwards'
-        });
+        changeVideo();
+    });
+
+    videoLayer.addEventListener('click', function() {
+        changeVideo();
     });
 });

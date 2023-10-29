@@ -20,7 +20,6 @@
         </div>
         <nav class="navBar">
             <a href="#leaders">Leaders</a>
-            <a href="#membertabs">Members</a>
             <a href="#senatorsList">Senators</a>
             <a href="#footer">About us</a>
         </nav>
@@ -28,7 +27,7 @@
 
     <main class="mainContent">
         <div class="entryVideo">
-            <video autoplay src="./videos/Virtual U.S. Capitol Tour.mp4"></video>
+            <video autoplay src="./videos/video.mp4"></video>
             <div class="videoLayer">
                 <p class="videoText"><span style="color: #023E8A;">United</span> <span
                         style="color: #ad1940">States</span></p>
@@ -37,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="imageSlider" id="leaders">
+        <div class="imageSlider">
             <div class="imagesOfLogos">
                 <img src="./images/republican.png" alt="republican image" class="imageRepublic">
                 <img src="./images/democrat.png" alt="democrat image" class="imageDemocrat">
@@ -50,13 +49,16 @@
         </div>
 
 
-        <div id="membertabs">
+        <div id="leaders">
             <div class="tabs">
                 <button class="tabButton" name="republicBtn">Republicans</button>
                 <button class="tabButton" name="democratBtn">Democrats</button>
                 <button class="tabButton" name="independentBtn">Independent</button>
             </div>
             <div class="description">
+                <table class="tableOfTabs">
+
+                </table>
             </div>
         </div>
 
@@ -70,21 +72,21 @@
                 <!-- add onchange to each select -->
                 <div class="partFilter filter">
                     <p>Party</p>
-                    <select class="filterButton" id="partyFilter" onchange="ApplyFilters()" form="carform">
+                    <select class="filterButton" id="partyFilter" onchange="ApplyFilters()">
                         <option selected value="">Select</option>
                     </select>
                 </div>
 
                 <div class="stateFlter filter">
                     <p>State</p>
-                    <select class="filterButton" name="" id="stateFilter" onchange="ApplyFilters()">
+                    <select class="filterButton" id="stateFilter" onchange="ApplyFilters()">
                         <option selected value="">Select</option>
                     </select>
                 </div>
 
                 <div class="rankFilter filter">
                     <p>Rank</p>
-                    <select class="filterButton" name="" id="rankFilter" onchange="ApplyFilters()">
+                    <select class="filterButton" id="rankFilter" onchange="ApplyFilters()">
                         <option selected value="">Select</option>
                     </select>
                 </div>
@@ -112,9 +114,16 @@
             <button id="musaddique">Musaddique</button>
             <button id="ritwik">Ritwik</button>
         </div>
+        <div class="creatorImage">
+            <img src="./images/musaddique.jpeg" alt="profile">
+        </div>
         <div class="memberSummary">
-            <p class="memberSummaryName"></p>
-            <p class="memberSummaryDesc"></p>
+            <p class="memberSummaryName">
+
+            </p>
+            <p class="memberSummaryDesc">
+
+            </p>
         </div>
         <div class="socialLinks">
             <a href="" class="github" target="_blank"><i class="fa fa-github" aria-hidden="true"
@@ -133,7 +142,7 @@
             <button onclick="closeInfoWindow()" class="close">
                 Close
             </button>
-            <img class="senateImage" src="" alt="">
+            <img class="senateImage" src="./images/dummy.png" alt="profile">
         </div>
         <div class="senatorDetailsWrapper">
             <table class="senatorDetails">

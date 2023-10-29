@@ -1,7 +1,8 @@
 {
    "Musaddique": {
        "Name": "Mohammed Musaddique",
-       "Summary": "lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+       "Summary": "Hello, I'm Musaddique. I have a deep passion for mathematics and machine learning. What excites me most is logic, and I often find myself immersed in solving complex problems. When I'm not exploring the intricacies of data and algorithms, my mind is occupied with brainstorming innovative business ideas. Let's connect and share our enthusiasm for technology and entrepreneurship.",
+       "image": "./images/musaddique.jpeg",
        "Social": [
            {
                "Name": "musaddique333",
@@ -23,7 +24,8 @@
    },
    "Ritwik": {
        "Name": "Ritwik Agarwal",
-       "Summary": "I am a 3rd year student at IIT Kharagpur. I am a full stack developer...",
+       "Summary": "Hello, I'm Ritwik Agarwal. I'm deeply passionate about software development, finding endless fascination in crafting efficient and elegant solutions. When I'm not immersed in code, you'll often find me on the badminton court, where the thrill of the game perfectly complements the precision of programming. I'm excited to continue honing my skills in both domains and look forward to connecting with like-minded enthusiasts",
+        "image": "./images/ritwik.jpg",
        "Social": [
            {
                "Name": "Ritwik-Ritz",

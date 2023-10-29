@@ -5,22 +5,10 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
-
-
 /* https://www.digitalocean.com/community/tutorials/css-scrollbars */
 
 *::-webkit-scrollbar {
-    width: 1.5vmin;
-}
-
-*::-webkit-scrollbar-track {
-    background: #ad1940;
-}
-
-*::-webkit-scrollbar-thumb {
-    background-color: #023d8a;
-    border-radius: 20px;
-    border: 0.5vmin solid #ad1940;
+    width: 0vmin;
 }
 
 .head {
@@ -51,17 +39,17 @@
     padding: 1.0vw;
     min-width: 5.0vw;
     text-align: center;
+}
 
-    &:hover {
-        background-color: #0077B6;
-        color: white;
-        border-radius: 0.2vw;
-        transform: scale(1.1);
-    }
+.navBar a:hover {
+    background-color: #0077B6;
+    color: white;
+    border-radius: 0.2vw;
+    transform: scale(1.1);
+}
 
-    &:active {
-        transform: scale(0.9);
-    }
+.navBar a:active {
+    transform: scale(0.9);
 }
 
 .entryVideo {
@@ -107,10 +95,10 @@
     overflow: hidden;
     max-width: fit-content;
     animation: appear 3s 0s linear;
+}
 
-    &:hover {
-        transform: scale(1.1);
-    }
+.videoText:hover {
+    transform: scale(1.1);
 }
 
 .videoControls {
@@ -124,14 +112,14 @@
     color: #023E8A;
     text-shadow: #000000 0.4vw 0.0vw 0.3vw;
     cursor: pointer;
+}
 
-    &:hover {
-        transform: scale(1.1);
-    }
+.videoControls i:hover {
+    transform: scale(1.1);
+}
 
-    &:active {
-        transform: scale(0.9);
-    }
+.videoControls i:active {
+    transform: scale(0.9);
 }
 
 .imageSlider {
@@ -232,13 +220,26 @@
     border: none;
 }
 
-.description {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 55.0vmax;
-    overflow: hidden;
+.description{
     white-space: nowrap;
+    overflow-x: scroll;
+    padding: 2.0vh 2.0vw;
+    height: 50.0vh;
+}
+
+.description .tableOfTabs{
+    margin: auto;
+    height: 100%;
+}
+
+.contentName{
+    text-align: right;
+}
+
+.contentName, .contentTitle{
+    font-size: 3.0vw;
+    color: #93e2ff;
+    text-shadow: rgba(1, 1, 1, 0.9) 0.2vw 0.2vw 0.2vw;
 }
 
 /*ritwik edits - 24/10*/
@@ -355,14 +356,12 @@
     padding: 1.0vw;
 }
 
-.info {
-    &:hover {
-        background-color: #ad1940;
-    }
+.info:hover {
+    background-color: #ad1940;
+}
 
-    &:active {
-        transform: scale(0.9);
-    }
+.info:active {
+    transform: scale(0.9);
 }
 
 footer {
@@ -410,15 +409,21 @@ footer {
     border-radius: 0.3vmax;
     cursor: pointer;
     box-shadow: #4e4e4ecc 0.2vw 0.2vw 0.2vw;
+}
 
-    &:hover {
-        transform: scale(1.1);
-    }
+.switchMember button:hover {
+    text-shadow: #000000 -0.2vw 0.2vw 0.2vw;
+    transform: scale(1.1);
+}
 
-    &:active {
-        text-shadow: #000000 -0.2vw 0.2vw 0.2vw;
-        transform: scale(0.9);
-    }
+.switchMember button:active {
+
+    transform: scale(0.9);
+}
+
+.creatorImage img{
+    width: 10.0vw;
+    box-shadow: #000000cc 0.4vw 0.4vw 0.8vw;
 }
 
 .socialLinks {
@@ -440,14 +445,14 @@ footer {
     font-size: 2.0vw;
     text-shadow: #4e4e4ecc 0.2vw 0.2vw 0.2vw;
     cursor: pointer;
+}
 
-    &:hover {
-        transform: scale(1.1);
-    }
+.socialLinks i:hover {
+    transform: scale(1.1);
+}
 
-    &:active {
-        transform: scale(0.9);
-    }
+.socialLinks i:active {
+    transform: scale(0.9);
 }
 
 .socialLinks i span {
@@ -506,8 +511,6 @@ footer {
     color: #c30d3d;
 }
 
-
-
 .close {
     width: 100%;
     padding: 1.0vw;
@@ -515,12 +518,12 @@ footer {
     border: none;
     background-color: #ad1940;
     font-size: 1.0vw;
+}
 
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.5);
-        color: #ad1940;
-        transform: scale(1.1);
-        border: solid 0.1vmax #ad1940;
-        transition: all 0.1s ease-in-out;
-    }
+.close:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #ad1940;
+    transform: scale(1.1);
+    border: solid 0.1vmax #ad1940;
+    transition: all 0.1s ease-in-out;
 }

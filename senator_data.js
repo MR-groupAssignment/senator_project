@@ -19,38 +19,60 @@ async function GetJsonData() {
         if (uniqueParties.indexOf(data.objects[objItr].party) === -1) {
             uniqueParties.push(data.objects[objItr].party);
         }
-    }
-
-    for (var objItr = 0; objItr < data.objects.length; objItr++) {
         if (uniqueParties.indexOf(data.objects[objItr].state) === -1) {
             uniqueStates.push(data.objects[objItr].state);
         }
-    }
 
-    for (var objItr = 0; objItr < data.objects.length; objItr++) {
         if (uniqueRanks.indexOf(data.objects[objItr].senator_rank_label) === -1) {
             uniqueRanks.push(data.objects[objItr].senator_rank_label);
         }
     }
 
+
+    uniqueParties = Array.from(new Set(uniqueParties));
+    uniqueStates = Array.from(new Set(uniqueStates));
+    uniqueRanks = Array.from(new Set(uniqueRanks));
+
+    uniqueStates.sort();
+    uniqueRanks.sort();
+
+    fetch("https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_hash.json")
+    .then(response => response.json())
+    .then(dataOfStates => {
+        uniqueStates.forEach((state, index) => {
+            uniqueStates[index] = `${state} - ${dataOfStates[state]}`;
+        })
+
+        AddStateFilterValues(uniqueStates);
+    })
+
     FillTableData(data, uniqueParties);
     AddPartyFilterValues(uniqueParties);
-    AddStateFilterValues(uniqueStates);
     AddRankFilterValues(uniqueRanks);
 }
 
 function FillTableData(data, uniqueParties) {
-    var table = document.getElementsByClassName("mainTable")[0];
-    for (var j = 0; j < uniqueParties.length; j++) {
-        for (var dt = 0; dt < data.objects.length; dt++) {
-            if (data.objects[dt].party == uniqueParties[j]) {
+    fetch("https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_hash.json")
+    .then(response => response.json())
+    .then(dataOfStates => {
+        var table = document.getElementsByClassName("mainTable")[0];
+        for (var j = 0; j < uniqueParties.length; j++) {
+            for (var dt = 0; dt < data.objects.length; dt++) {
+                if (data.objects[dt].party == uniqueParties[j]) {
 
-                senatorInfo = "<tr class=\"info\" onclick=\"GetSenatorDetails(" + dt + ")\">" + "<td>" + data.objects[dt].person.firstname + " " + data.objects[dt].person.lastname + "</td>" + "<td>" + data.objects[dt].party + "</td>" + "<td>" + data.objects[dt].state + "</td>" + "<td>" + data.objects[dt].person.gender_label + "</td>" + "<td>" + data.objects[dt].senator_rank_label + "</td>" + "</tr>";
+                    const senatorInfo = `<tr class="info" onclick="GetSenatorDetails(${dt})">
+                                    <td>${data.objects[dt].person.firstname} ${data.objects[dt].person.lastname}</td>
+                                    <td>${data.objects[dt].party}</td>
+                                    <td>${data.objects[dt].state} - ${dataOfStates[data.objects[dt].state]}</td>
+                                    <td>${data.objects[dt].person.gender_label}</td>
+                                    <td>${data.objects[dt].senator_rank_label}</td>
+                                    </tr>`;
 
-                table.innerHTML += senatorInfo;
+                    table.innerHTML += senatorInfo;
+                }
             }
         }
-    }
+    })
 }
 
 //directly linked to html select tag
@@ -79,7 +101,6 @@ function ApplyFilters() {
 
 function AddPartyFilterValues(uniqueParties) {
     const partyFilter = document.getElementById("partyFilter");
-
     for(var i =0; i <uniqueParties.length;i++)
     {
         var option = document.createElement("option")
@@ -91,7 +112,6 @@ function AddPartyFilterValues(uniqueParties) {
 function AddStateFilterValues(uniqueStates)
 {
     const stateFilter = document.getElementById("stateFilter");
-
     for(var i =0; i <uniqueStates.length;i++)
     {
         var option = document.createElement("option")
@@ -138,10 +158,12 @@ function GetSenatorDetails(index)
         tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
         table.innerHTML += tr.outerHTML
 
-        td1.innerHTML = `Leadership Title`
-        td2.innerHTML = `${data.objects[index].leadership_title}` == "null" ? `None` : `${data.objects[index].leadership_title}`
-        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
-        table.innerHTML += tr.outerHTML;
+        if (data.objects[index].leadership_title !== null) {
+            td1.innerHTML = `Leadership Title`
+            td2.innerHTML = `${data.objects[index].leadership_title}`
+            tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+            table.innerHTML += tr.outerHTML;
+        }
 
         td1.innerHTML = `Description`
         td2.innerHTML = `${data.objects[index].description}`
@@ -153,10 +175,14 @@ function GetSenatorDetails(index)
         tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
         table.innerHTML += tr.outerHTML
 
-        td1.innerHTML = `State`
-        td2.innerHTML = `${data.objects[index].state}`
-        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
-        table.innerHTML += tr.outerHTML
+        fetch("https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_hash.json")
+        .then(response => response.json())
+        .then(dataOfStates => {
+            td1.innerHTML = `State`
+            td2.innerHTML = `${data.objects[index].state} - ${dataOfStates[data.objects[index].state]}`
+            tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+            table.innerHTML += tr.outerHTML
+        })
 
         td1.innerHTML = `Rank`
         td2.innerHTML = `${data.objects[index].senator_rank_label} ${data.objects[index].senator_class_label}`
@@ -183,16 +209,19 @@ function GetSenatorDetails(index)
         tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
         table.innerHTML += tr.outerHTML
 
-        td1.innerHTML = `Fax`
-        td2.innerHTML = `${data.objects[index].extra.fax}`
-        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
-        table.innerHTML += tr.outerHTML
+        if (data.objects[index].extra.fax !== undefined) {
+            td1.innerHTML = `Fax`
+            td2.innerHTML = `${data.objects[index].extra.fax}`
+            tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+            table.innerHTML += tr.outerHTML
+        }
 
-
-        td1.innerHTML = `Nickname`
-        td2.innerHTML = `${data.objects[index].person.nickname}`
-        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
-        table.innerHTML += tr.outerHTML
+        if (data.objects[index].person.nickname !== "") {
+            td1.innerHTML = `Nickname`
+            td2.innerHTML = `${data.objects[index].person.nickname}`
+            tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+            table.innerHTML += tr.outerHTML
+        }
 
         td1.innerHTML = `Gender`
         td2.innerHTML = `${data.objects[index].person.gender_label}`
@@ -209,10 +238,12 @@ function GetSenatorDetails(index)
         tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
         table.innerHTML += tr.outerHTML
 
-        td1.innerHTML = `Youtube`
-        td2.innerHTML = `${data.objects[index].person.youtubeid}`
-        tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
-        table.innerHTML += tr.outerHTML
+        if (data.objects[index].person.youtubeid !== null) {
+            td1.innerHTML = `Youtube`
+            td2.innerHTML = `${data.objects[index].person.youtubeid}`
+            tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
+            table.innerHTML += tr.outerHTML
+        }
 
         td1.innerHTML = `Phone`
         td2.innerHTML = `${data.objects[index].phone}`
