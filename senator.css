@@ -5,8 +5,6 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
-/* https://www.digitalocean.com/community/tutorials/css-scrollbars */
-
 *::-webkit-scrollbar {
     width: 0vmin;
 }
@@ -147,12 +145,12 @@
     }
 
     to {
-        transform: translateX(7.0vw);
+        transform: translateX(0vw);
     }
 }
 
 .imageRepublic {
-    animation: elephant 1.5s 0s alternate infinite;
+    animation: elephant 2.0s 0s alternate infinite;
     width: 40vw;
 }
 
@@ -162,12 +160,12 @@
     }
 
     to {
-        transform: translateX(-7.0vw);
+        transform: translateX(0vw);
     }
 }
 
 .imageDemocrat {
-    animation: donkey 1.5s 0s alternate infinite;
+    animation: donkey 2.0s 0s alternate infinite;
     width: 40vw;
 }
 
