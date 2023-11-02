@@ -8,48 +8,47 @@
     <link rel="stylesheet" href="./senator.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500&family=Ubuntu&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500&family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>US Senators</title>
 </head>
 
 <body>
     <header class="head">
-        <a href="https://www.govtrack.us/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-            <div class="mainHeading">
-                <img src="./images/us_capitol.png">
-                <h1>U.S.A Senators</h1>
-            </div>
-        </a>
-        <div class="headingIcon">    
-            <img class="iconImage" src="./images/bars-solid.svg" alt="MenuIcon" onclick="openmenu()" >
+        <div class="mainHeadingImage">
+            <a href="https://www.govtrack.us/" target="_blank">
+                <img src="./images/capitol.png">
+            </a>
         </div>
-
+        <div class ="mainHeading">
+            <a href="https://www.govtrack.us/congress/members" target="_blank">
+                <h1>SENATORS</h1>
+            </a>
+        </div>
         <div class="navBar">
-            <ul>
-                <li><a href="#leaders">Leaders</a></li>
-                <li><a href="#senatorsList">Senators</a></li>
-                <li><a href="#footer">About Us</a></li>
-            </ul>
+            <img class="iconImage" src="./images/bars-solid.svg" alt="MenuIcon" onclick="openmenu()">
+            <nav onclick="openmenu()">
+                <a href="#leaders"><h2>Leaders</h2></a>
+                <a href="#senatorsList"><h2>Senators</h2></a>
+                <a href="#footer"><h2>About Us</h2></a>
+            </nav>
         </div>
 
         <!-- implementation for changing menu icons -->
         <script>
+            var navmenu = document.querySelector(".navBar nav");
+            var iconImg = document.getElementsByClassName("iconImage")[0];
             function openmenu()
             {
-                var navmenu = document.getElementsByClassName("navBar")[0];
-                var iconImg = document.getElementsByClassName("iconImage")[0];
-
-                if(navmenu.style.display==='none')
-                {
-                    navmenu.style.display = 'block';
+                if (iconImg.src.match("./images/bars-solid.svg")){
                     iconImg.src = "./images/x-solid.svg";
+                    iconImg.style.padding = "0 4.0vw"
+                    navmenu.style.display = 'flex';
                 }
-                else
-                {
-                    navmenu.style.display = 'none';
+                else{
+                    iconImg.style.padding = "0"
                     iconImg.src = "./images/bars-solid.svg";
+                    navmenu.style.display = 'none';
                 }
             }
         </script>
@@ -57,10 +56,10 @@
 
     <main class="mainContent">
         <div class="entryVideo">
-            <video autoplay src="./videos/video.mp4"></video>
+            <video loop src="./videos/video.mp4"></video>
             <div class="videoLayer">
-                <p class="videoText"><span style="color: #023E8A;">United</span> <span
-                        style="color: #ad1940">States</span></p>
+                <p class="videoText"><span style="color: #023E8A; -webkit-text-stroke: #81c4ff 0.1vw;">United</span> <span
+                        style="color: #ad1940; -webkit-text-stroke: #ff99a5 0.1vw;">States</span></p>
                 <div class="videoControls">
                     <i class="play fa fa-play"></i>
                 </div>
@@ -68,12 +67,14 @@
         </div>
         <div class="imageSlider">
             <div class="imagesOfLogos">
-                <img src="./images/republican.png" alt="republican image" class="imageRepublic">
-                <img src="./images/democrat.png" alt="democrat image" class="imageDemocrat">
+                <img src="./images/republicansLogo.jpeg" alt="republican image" class="imageRepublic">
+                <img src="./images/indepndentsLogo.jpeg" alt="independent image" class="imageIndependent">
+                <img src="./images/democratLogo.jpeg" alt="democrat image" class="imageDemocrat">
             </div>
             <div class="percentageOfLogos">
-                <div class="percentage percentRepublic"></div>
-                <div class="percentage percentDemocrat"></div>
+                <div class="percentage percentRepublic">Hover/Click</div>
+                <div class="percentage percentIndependent">After</div>
+                <div class="percentage percentDemocrat">Animation</div>
             </div>
             <script src="./slidingImage.js"></script>
         </div>
@@ -83,7 +84,7 @@
             <div class="tabs">
                 <button class="tabButton" name="republicBtn">Republicans</button>
                 <button class="tabButton" name="democratBtn">Democrats</button>
-                <button class="tabButton" name="independentBtn">Independent</button>
+                <button class="tabButton" name="independentBtn">Independents</button>
             </div>
             <div class="description">
                 <table class="tableOfTabs">
@@ -172,7 +173,11 @@
             <button onclick="closeInfoWindow()" class="close">
                 Close
             </button>
-            <img class="senateImage" src="./images/dummy.png" alt="profile">
+            <div>
+                <img class="flag1 Image" src="./images/dummy.png" alt="partyFlag">
+                <img class="senate Image" src="./images/dummy.png" alt="profile">
+                <img class="flag2 Image" src="./images/dummy.png" alt="partyFlag">
+            </div>
         </div>
         <div class="senatorDetailsWrapper">
             <table class="senatorDetails">

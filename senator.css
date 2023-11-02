@@ -12,100 +12,100 @@
 .head {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: #023E8A;
     padding: 0 2.0vw;
-    height: 5.0vmax;
+    height: 8.0vw;
 }
 
-.mainHeading
-{
+.mainHeadingImage, .mainHeading, .navBar{
+    flex: 1;
+}
+
+.mainHeading{
     display: flex;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
-.mainHeading:hover
-{
-    transform: scale(1.05);
+.mainHeading a,
+.mainHeadingImage a{
+    text-decoration: none;
+    & h1:hover{
+        background: -webkit-radial-gradient(circle, rgba(2,62,138,1) 0%, rgba(129,196,255,1) 25%, rgba(255,153,165,1) 75%, rgba(173,25,64,1) 100%);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-stroke: #ff99a5 0;
+        text-shadow: none;
+        transition: all 1.0s ease-in-out;
+    }
+    & h1:hover,
+    & img:hover{
+        transform: scale(1.1);
+    }
+
+    & h1:active,
+    & img:active{
+        transform: scale(0.9);
+    }
 }
 
-.mainHeading img
-{
-    height:5vw;
-    width:5vw;
+.mainHeading a h1{
+    color: #ad1940;
+    font-size: 6.0vw;
+    -webkit-text-stroke: #ff99a5 0.005vw;
+    text-shadow: rgba(1, 1, 1, 0.9) 0.5vw 0.2vw 0.5vw;
 }
 
-.head h1 {
-    font-size: 4.0vw;
-    text-shadow: 0.1vw 0.1vw 0.4vw #000000ba;
+.mainHeadingImage a img{
+    width: 5.5vw;
 }
 
 .navBar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.iconImage{
+    height: 5.0vw;
+    width: 5.0vw;
+    transition: all 0.5s ease-in-out;
+}
+
+.navBar nav{
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.0vw;
     position: absolute;
-    right:1vw;
-    top:9vh;
-    background-color: #023E8A;
-    /* border: 1px solid #ccc; */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     z-index: 1;
+    top: 8.0vw;
+    right: 2.0vw;
+    background-color: #023E8A;
+    width: 13.0vw;
+    height: 10.0vw;
+    border-radius: 0 0 1.0vw 1.0vw;
 }
 
-.navBar ul{
-    list-style-type: none;
-    padding: 0;
-}
-.navBar li
-{
-    padding: 15px;
-}
-.navBar a {
+.navBar nav a{
     text-decoration: none;
-    font-size:1.5vw;
-    text-shadow: 0.1vw 0.1vw 0.4vw #000000ba;
-    padding: 1.0vw;
-    min-width: 5.0vw;
-    text-align: center;
+    &:hover{
+        transform: scale(1.1);
+        color: #93e2ff;
+    }
 }
 
-.navBar a:hover {
-    background-color: #0077B6;
-    color: white;
-    border-radius: 0.2vw;
-    transform: scale(1.1);
+.navBar nav a h2{
+    font-size: 2.0vw;
+    color: #ad1940;
+    -webkit-text-stroke: #fe95a7 0.005vw;
+    &:hover{
+        color: #93e2ff;
+        -webkit-text-stroke: #93e2ff 0.005vw;
+    }
 }
 
-.navBar a:active {
-    transform: scale(0.9);
-}
-
-.headingIcon
-{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    font-size:xx-large;
-    margin-right: 2%;
-}
-
-.headingIcon img{
-    height: 5vh;
-    width: auto;
-}
-
-.headingIcon img:hover{
-    transform: scale(1.1);
-    transition: all 0.3s ease-in-out;
-}
-
-.crossHeadingIcon
-{
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size:xx-large;
-    margin-right: 2%;
-}
 .entryVideo {
     display: flex;
     align-items: center;
@@ -144,11 +144,12 @@
     font-size: 5.0vw;
     text-align: center;
     padding: 1.0vw;
-    text-shadow: #000000 0.2vw 0.0vw 0.3vw;
+    text-shadow: rgb(0, 0, 0) 0.5vw 0.2vw 0.5vw;
     white-space: nowrap;
     overflow: hidden;
     max-width: fit-content;
     animation: appear 3s 0s linear;
+    transition: all 1.0s ease-in-out;
 }
 
 .videoText:hover {
@@ -164,12 +165,14 @@
 .videoControls i {
     font-size: 10.0vw;
     color: #023E8A;
-    text-shadow: #000000 0.4vw 0.0vw 0.3vw;
+    text-shadow: rgb(0, 0, 0) 1.0vw 0.5vw 0.7vw;
+    -webkit-text-stroke: #81c4ff 0.1vw;
     cursor: pointer;
 }
 
 .videoControls i:hover {
     transform: scale(1.1);
+    transition: all 1.0s ease-in-out;
 }
 
 .videoControls i:active {
@@ -180,9 +183,8 @@
     background-image: url(./images/us_flag.png);
     background-position: center;
     background-size: cover;
-    position: relative;
     width: 100.0vw;
-    height: 50vw;
+    height: 50.0vw;
 }
 
 .imagesOfLogos {
@@ -191,13 +193,44 @@
     justify-content: space-around;
     width: 100%;
     height: 100%;
-    position: absolute;
     overflow: hidden;
 }
 
-@keyframes elephant {
+@keyframes hideTillAnimate {
     from {
-        transform: translateX(-40vw);
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes flip {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes blinkText {
+    from {
+        color: #ffffff00;
+        -webkit-text-stroke: #00000000 0.1vw;
+    }
+
+    to {
+        color: #ffffff;
+        -webkit-text-stroke: #000000 0.1vw;
+    }
+}
+
+@keyframes moveLeft {
+    from {
+        transform: translateX(-33.33vw);
     }
 
     to {
@@ -205,14 +238,15 @@
     }
 }
 
+
 .imageRepublic {
-    animation: elephant 2.0s 0s alternate infinite;
-    width: 40vw;
+    animation: moveLeft 4.0s 0s alternate linear;
+    width: 33.33vw;
 }
 
-@keyframes donkey {
+@keyframes moveRight {
     from {
-        transform: translateX(40vw);
+        transform: translateX(33.33vw);
     }
 
     to {
@@ -221,40 +255,89 @@
 }
 
 .imageDemocrat {
-    animation: donkey 2.0s 0s alternate infinite;
-    width: 40vw;
+    animation: hideTillAnimate 4.0s 0s linear, moveRight 4.0s 4.0s alternate linear;
+    width: 33.33vw;
+}
+
+@keyframes moveUp {
+    from {
+        transform: translateY(-42vw);
+    }
+
+    to {
+        transform: translateY(0vw);
+    }
+}
+
+.imageIndependent{
+    width: 33.33vw;
+    animation: hideTillAnimate 8.0s 0s linear, moveUp 4.0s 8.0s alternate linear;
 }
 
 .percentageOfLogos {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    position: absolute;
+    justify-content: center;
+}
+
+@keyframes increaseSizeTillAnimate {
+    from{
+        font-size: 8.0vw;
+    }
+    to{
+        font-size: 0vw;
+    } 
 }
 
 .percentDemocrat,
-.percentRepublic {
+.percentRepublic,
+.percentIndependent {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3.0vw;
+    font-size: 5.0vw;
+    color: aqua;
     text-align: center;
     text-shadow: #515151 0.1vw 0.1vw 0.1vw;
-
-}
-
-.percentRepublic,
-.percentDemocrat {
-    width: 50vw;
-    height: 50vw;
+    animation: increaseSizeTillAnimate 12.0s 0s linear;
+    width: 33.33vw;
+    height: 33.33vw;
+    position: relative;
+    top: -41.665vw;
+    z-index: 1;
 }
 
 .percentRepublic:hover {
-    background-color: rgba(10, 49, 97, 0.5);
+    background-color: rgba(179, 25, 66, 0.5);
+    color: #ba002f;
+    -webkit-text-stroke: #ff99a5 0.1vw;
+    text-shadow: rgba(0, 0, 0, 0.5) 0.5vw 0.5vw 0.5vw;
+    animation: increaseSizeTillAnimate 9.0s 0s linear;
+    transition: all 0.5s ease-in-out;
 }
 
 .percentDemocrat:hover {
-    background-color: rgba(179, 25, 66, 0.5);
+    background-color: rgba(10, 49, 97, 0.5);   
+    color: #023E8A;
+    -webkit-text-stroke: #81c4ff 0.1vw;
+    text-shadow: rgba(0, 0, 0, 0.5) 0.5vw 0.5vw 0.5vw;
+    animation: increaseSizeTillAnimate 9.0s 0s linear;
+    transition: all 0.5s ease-in-out;
+}
+
+.percentIndependent:hover {
+    background-color: rgba(128, 0, 128, 0.5);
+    color: #800080;
+    -webkit-text-stroke: #ff72ff 0.1vw;
+    text-shadow: rgba(0, 0, 0, 0.5) 0.5vw 0.5vw 0.5vw;
+    animation: increaseSizeTillAnimate 9.0s 0s linear;
+    transition: all 0.5s ease-in-out;
+}
+
+#leaders{
+    background-image: url(./images/republican.png);
+    background-position: center;
+    background-size: cover;
 }
 
 .tabs {
@@ -267,10 +350,10 @@
     flex: 1;
     text-align: center;
     color: #515151;
-    text-shadow: #5151518a 0.2vw 0.2vw 0.4vw;
-    font-size: 4.0vw;
+    text-shadow: rgb(0, 0, 0) 0.3vw 0.5vw 0.6vw;
+    font-size: 5.0vw;
     padding: 1.0vh 1.0vw;
-    height: 7.0vmax;
+    height: 10.0vw;
     border: none;
 }
 
@@ -278,7 +361,6 @@
     white-space: nowrap;
     overflow-x: scroll;
     padding: 2.0vh 2.0vw;
-    height: 50.0vh;
 }
 
 .description .tableOfTabs{
@@ -302,16 +384,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url(./images/tableBackground.png);
-    background-position: center;
-    background-size: cover;
+    background-image: url(./images/tableBackground.jpg);
+    background-repeat: repeat;
 }
 
 .tableHeading {
     text-align: center;
-    font-size: 5.0vw;
+    font-size: 7.0vw;
     color: #ad1940;
-    text-shadow: rgb(255 169 169) 0.1vw 0.1vw 0vw;
+    text-shadow: rgb(0, 0, 0) 1.0vw 0.5vw 0.7vw;
+    -webkit-text-stroke: #fe95a7 0.005vw;
     margin-top: 2.0vh;
 }
 
@@ -334,9 +416,11 @@
 }
 
 .filter p {
-    font-size: 2.0vw;
-    color: #93e2ff;
-    text-shadow: rgba(1, 1, 1, 0.9) 0.2vw 0.2vw 0.2vw;
+    font-size: 4.0vw;
+    font-weight: bolder;
+    color: #0058b6;
+    -webkit-text-stroke: #8fc5ff 0.005vw;
+    text-shadow: rgba(1, 1, 1, 0.9) 0.5vw 0.25vw 0.25vw;
 }
 
 .filter .filterButton {
@@ -360,7 +444,7 @@
 }
 
 .filterButton:hover {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(147, 226, 255, 0.5);
     color: #ad1940;
     background-image: url("./images/up-arrow-svgrepo-com.svg");
     transition: all 0.3s ease-in-out;
@@ -388,30 +472,31 @@
 
 .tableHeadRow {
     text-align: center;
-    background-color: rgba(6, 99, 199, 0.3);
-    height: 7.0vmax;
+    background-color: rgba(2, 61, 138, 0.734);
+    height: 8.0vw;
 }
 
 .tableHeadRow th {
     font-size: 3.0vw;
     color: #ad1940;
-    text-shadow: rgba(1, 1, 1, 0.9) 0.2vw 0.2vw 0.2vw;
+    text-shadow: rgba(1, 1, 1, 0.9) 0.1vw 0.25vw 0.25vw;
+    -webkit-text-stroke: #fe95a7 0.005vw;
 }
 
 .mainTable {
-    background-color: rgba(173, 25, 64, 0.3);
+    background-color: rgba(173, 25, 64, 0.7);
 }
 
 .info td {
     font-size: 1.5vw;
     text-align: center;
     color: #93e2ff;
-    text-shadow: rgba(1, 1, 1, 0.9) 0.2vw 0.2vw 0.2vw;
+    text-shadow: rgba(1, 1, 1, 0.9) 0.05vw 0.15vw 0.15vw;
     padding: 1.0vw;
 }
 
 .info:hover {
-    background-color: #ad1940;
+    background-color: #c30d3d;
 }
 
 .info:active {
@@ -423,11 +508,9 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 2.0vw;
-    /* height: 10.0vh; */
     width: 96.0vw;
     padding: 2.0vw;
-    background: rgb(171, 32, 72);
-    background: linear-gradient(180deg, rgba(171, 32, 72, 1) 62%, rgba(255, 0, 0, 1) 100%);
+    background: #ad1940;
 }
 
 .memberSummary {
@@ -459,8 +542,8 @@ footer {
     width: 15.0vw;
     height: 3.0vw;
     background-color: #023E8A;
-    border: solid 0.1vmax #93e2ff;
-    border-radius: 0.3vmax;
+    border: solid 0.1vw #93e2ff;
+    border-radius: 0.3vw;
     cursor: pointer;
     box-shadow: #4e4e4ecc 0.2vw 0.2vw 0.2vw;
 }
@@ -528,7 +611,7 @@ footer {
     height: 70.0vh;
     padding: 5.0vh 5.0vw;
     background-color: rgba(2, 61, 138, 0.8);
-    border-radius: 1.0vmax;
+    border-radius: 1.0vw;
 }
 
 .senatorDetailsTop{
@@ -539,8 +622,11 @@ footer {
     gap: 1.0vw;
 }
 
-.senateImage{
+.Image{
     width: 20.0vmin;
+}
+
+.senate.Image{
     box-shadow: #000000cc 0.4vw 0.4vw 0.8vw;
 }
 
@@ -568,7 +654,7 @@ footer {
 .close {
     width: 100%;
     padding: 1.0vw;
-    border-radius: 0.2vmax;
+    border-radius: 0.2vw;
     border: none;
     background-color: #ad1940;
     font-size: 1.0vw;
@@ -578,6 +664,6 @@ footer {
     background-color: rgba(255, 255, 255, 0.5);
     color: #ad1940;
     transform: scale(1.1);
-    border: solid 0.1vmax #ad1940;
+    border: solid 0.1vw #ad1940;
     transition: all 0.1s ease-in-out;
 }

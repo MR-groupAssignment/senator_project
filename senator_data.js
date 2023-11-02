@@ -59,14 +59,16 @@ function FillTableData(data, uniqueParties) {
         for (var j = 0; j < uniqueParties.length; j++) {
             for (var dt = 0; dt < data.objects.length; dt++) {
                 if (data.objects[dt].party == uniqueParties[j]) {
-
+                    let iconOfGender = data.objects[dt].person.gender_label === "Male" ? "♂" : "♀";
+                    let iconOfParty = data.objects[dt].party === "Democrat" ? "🫏" : data.objects[dt].party === "Republican" ? "🐘" : "🦅";
+                    console.log(iconOfGender)
                     const senatorInfo = `<tr class="info" onclick="GetSenatorDetails(${dt})">
                                     <td>${data.objects[dt].person.firstname} ${data.objects[dt].person.lastname}</td>
-                                    <td>${data.objects[dt].party}</td>
+                                    <td>${iconOfParty} ${data.objects[dt].party}</td>
                                     <td>${data.objects[dt].state} - ${dataOfStates[data.objects[dt].state]}</td>
-                                    <td>${data.objects[dt].person.gender_label}</td>
+                                    <td>${iconOfGender} ${data.objects[dt].person.gender_label}</td>
                                     <td>${data.objects[dt].senator_rank_label}</td>
-                                    </tr>`;
+                                    </tr>`; 
 
                     table.innerHTML += senatorInfo;
                 }
@@ -136,7 +138,9 @@ function GetSenatorDetails(index)
 {
     main.style.filter = 'blur(5px)';
     let wrapper = document.querySelector('.senatorDetailsTableWrapper');
-    let senateImage = document.querySelector('.senateImage');
+    let senateImage = document.querySelector('.senate.Image');
+    let flag1Image = document.querySelector('.flag1.Image');
+    let flag2Image = document.querySelector('.flag2.Image');
     wrapper.style.display = 'flex';
     fetch('./senators.json')
     .then(response => response.json())
@@ -152,6 +156,19 @@ function GetSenatorDetails(index)
         td2.classList.add('senateRow');
         senateImage.src = ``;
         senateImage.src = `https://www.govtrack.us/static/legislator-photos/${data.objects[index].person.link.split("/")[6]}-200px.jpeg`;
+
+        if (data.objects[index].party === "Democrat") {
+            flag1Image.src = `./images/democraticPartyyLogo.png`;
+            flag2Image.src = `./images/democraticPartyyLogo.png`;
+        }
+        else if (data.objects[index].party === "Republican") {
+            flag1Image.src = `./images/republicanPartyLogo.png`;
+            flag2Image.src = `./images/republicanPartyLogo.png`;
+        }
+        else if (data.objects[index].party === "Independent") {
+            flag1Image.src = `./images/independentPartyLogo.png`;
+            flag2Image.src = `./images/independentPartyLogo.png`;
+        }
 
         td1.innerHTML = `Name`
         td2.innerHTML = `${data.objects[index].title} ${data.objects[index].person.firstname} ${data.objects[index].person.middlename} ${data.objects[index].person.lastname}`;

@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     let percentRepublic = document.querySelector('.percentRepublic');
     let percentDemocrat = document.querySelector('.percentDemocrat');
+    let percentIndependent = document.querySelector('.percentIndependent');
+    const imageRepublic = document.querySelector('.imageRepublic');
+    const imageDemocrat = document.querySelector('.imageDemocrat');
+    const imageIndependent = document.querySelector('.imageIndependent');
     let percentage = document.querySelectorAll('.percentage');
     const video = document.querySelector('.entryVideo video');
     const playButton = document.querySelector('.play');
@@ -8,59 +12,81 @@ document.addEventListener('DOMContentLoaded', function() {
     const videoLayer = document.querySelector('.videoLayer');
 
     const jsonFile = './senators.json';
-
-    percentage.forEach(function(element) {
-        let countRepub = 0;
-        let countDemo = 0;
-        element.addEventListener('mouseover', function() {
-            fetch(jsonFile,{mode:'cors'})
-            .then(response => response.json())
-            .then(data => {
-                let countRepublic = 0;
-                let countDemocrat = 0;
-                for (i = 0; i < data.objects.length; i++) {
-                    if (data.objects[i].party === "Republican") {
-                        countRepublic++;
-                    } else if (data.objects[i].party === "Democrat") {
-                        countDemocrat++;
+    setTimeout(function() {
+        percentage.forEach(function(element) {
+            element.innerHTML = 'Now'
+            let countRepub = 0;
+            let countDemo = 0;
+            let countInde = 0;
+            element.addEventListener('mouseover', function() {
+                fetch(jsonFile,{mode:'cors'})
+                .then(response => response.json())
+                .then(data => {
+                    let countRepublic = 0;
+                    let countDemocrat = 0;
+                    let countIndependent = 0;
+                    for (i = 0; i < data.objects.length; i++) {
+                        if (data.objects[i].party === "Republican") {
+                            countRepublic++;
+                        } else if (data.objects[i].party === "Democrat") {
+                            countDemocrat++;
+                        }
+                        else if (data.objects[i].party === "Independent") {
+                            countIndependent++;
+                        }
                     }
+                    if (element.classList.contains('percentRepublic') && countRepub === 0) {
+                        countRepub++;
+                        percentRepublic.innerHTML +=`${(countRepublic / data.objects.length) * 100}%<br>`;
+                        percentRepublic.innerHTML += `Majority Republicans<br>`;
+                        percentRepublic.innerHTML += `Total ${countRepublic} Members`;
+                        imageRepublic.style.animation = 'flip 2.0s 0s alternate linear';
+
+                    } 
+                    else if (element.classList.contains('percentDemocrat') && countDemo === 0) {
+                        countDemo++;
+                        percentDemocrat.innerHTML +=`${(countDemocrat / data.objects.length) * 100}%<br>`;
+                        percentDemocrat.innerHTML += `Majority Democrat<br>`;
+                        percentDemocrat.innerHTML += `Total ${countDemocrat} Members`;
+                        imageDemocrat.style.animation = 'flip 2.0s 0s alternate linear';
+                    }
+                    else if (element.classList.contains('percentIndependent') && countInde === 0) {
+                        countInde++;
+                        percentIndependent.innerHTML +=`${(countIndependent / data.objects.length) * 100}%<br>`;
+                        percentIndependent.innerHTML += `Majority Independent<br>`;
+                        percentIndependent.innerHTML += `Total ${countIndependent} Members`;
+                        imageIndependent.style.animation = 'flip 2.0s 0s alternate linear';
+                    }
+                });
+            });
+            element.addEventListener('mouseout', function() {
+                if (element.classList.contains('percentRepublic') && countRepub === 1) {
+                    countRepub--;
+                    percentRepublic.innerHTML = '';
+                    imageRepublic.style.animation = 'none';
+                } else if (element.classList.contains('percentDemocrat') && countDemo === 1) {
+                    countDemo--;
+                    percentDemocrat.innerHTML = '';
+                    imageDemocrat.style.animation = 'none';
                 }
-                if (element.classList.contains('percentRepublic') && countRepub === 0) {
-                    countRepub++;
-                    percentRepublic.style.cssText = 'text-align: center; font-size: 5.0vw; color: #ad1940; text-shadow: rgb(255 169 169) 0.2vw 0.1vw 0vw;';
-                    percentRepublic.innerHTML +=`${(countRepublic / data.objects.length) * 100}%<br>`;
-                    percentRepublic.innerHTML += `Majority Republicans<br>`;
-                    percentRepublic.innerHTML += `Total ${countRepublic} Members`;
-                } 
-                else if (element.classList.contains('percentDemocrat') && countDemo === 0) {
-                    countDemo++;
-                    percentDemocrat.style.cssText = 'text-align: center; font-size: 5.0vw; color: #023E8A; text-shadow: #b8e6ff 0.2vw 0.1vw 0vw;';
-                    percentDemocrat.innerHTML +=`${(countDemocrat / data.objects.length) * 100}%<br>`;
-                    percentDemocrat.innerHTML += `Majority Democrat<br>`;
-                    percentDemocrat.innerHTML += `Total ${countDemocrat} Members`;
+                else if (element.classList.contains('percentIndependent') && countInde === 1) {
+                    countInde--;
+                    percentIndependent.innerHTML = '';
+                    imageIndependent.style.animation = 'none';
                 }
             });
         });
-        element.addEventListener('mouseout', function() {
-            if (element.classList.contains('percentRepublic') && countRepub === 1) {
-                countRepub--;
-                percentRepublic.innerHTML = '';
-            } else if (element.classList.contains('percentDemocrat') && countDemo === 1) {
-                countDemo--;
-                percentDemocrat.innerHTML = '';
-            }
-        });
-    });
+    }, 12000);
 
     function changeVideo() {
         if (video.paused) {
             video.play();
             playButton.style.opacity = '0';
-            console.log("i am in if")
+            videoText.style.opacity = '0';
         } else {
             video.pause();
             playButton.style.opacity = '1';
-            console.log("i am in else")
+            videoText.style.opacity = '1';
         }
         videoText.animate([
             {width: '0%'},

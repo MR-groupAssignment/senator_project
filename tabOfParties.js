@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const content = document.querySelector('.description .tableOfTabs');
     const description = document.querySelector('.description');
     const jsonFile = './senators.json';
-
+    const leader = document.getElementById('leaders');
     tabButtons.forEach(button => {
         button.addEventListener('click', () => {
             clearTabButtonColors(tabButtons);
@@ -13,7 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch(jsonFile,{mode:'cors'})
                 .then(response => response.json())
                 .then(data => {
-                    arrayOfColors = ['rgb(10, 49, 97)', 'rgb(179, 25, 66)', 'purple'];
+                    arrayOfColors = ['rgba(179, 25, 66, 0.5)', 'rgba(10, 49, 97, 0.5)','rgba(128, 0, 128, 0.5)'];
+                    arrayOfTextColors = ['#ba002f', '#023E8A', '#800080'];
+                    arrayOfStrokeColors = ['#ff99a5', '#81c4ff', '#ff72ff'];
+                    arrayOfBackground = ['./images/republican.png', './images/democrat.png', './images/independent.png'];
                     const tr = document.createElement('tr');
                     const contentName = document.createElement('td');
                     contentName.classList.add('contentName');
@@ -22,16 +25,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     if (button.name === 'republicBtn') {
                         button.style.backgroundColor = `${arrayOfColors[0]}`;
+                        button.style.color = `${arrayOfTextColors[0]}`;
+                        button.style.webkitTextStroke = `0.1vw ${arrayOfStrokeColors[0]}`;
+                        leader.style.backgroundImage = `url(${arrayOfBackground[0]})`;
                         displayPartyLeaders(data, tr, contentName, contentTitle, 'Republican', 0);
                     } else if (button.name === 'democratBtn') {
                         button.style.backgroundColor = `${arrayOfColors[1]}`;
+                        button.style.color = `${arrayOfTextColors[1]}`;
+                        button.style.webkitTextStroke = `0.1vw ${arrayOfStrokeColors[1]}`;
+                        leader.style.backgroundImage = `url(${arrayOfBackground[1]})`;
                         displayPartyLeaders(data, tr, contentName, contentTitle, 'Democrat', 1);
                     } else if (button.name === 'independentBtn') {
                         button.style.backgroundColor = `${arrayOfColors[2]}`;
+                        button.style.color = `${arrayOfTextColors[2]}`;
+                        button.style.webkitTextStroke = `0.1vw ${arrayOfStrokeColors[2]}`;
+                        leader.style.backgroundImage = `url(${arrayOfBackground[2]})`;
                         displayPartyLeaders(data, tr, contentName, contentTitle, 'Independent', 2);
                     }
-                    button.style.color = "#CAF0F8";
-                    description.animate([{height: '0vmax'}, {height: '75.0vmin'}], {duration: 3000, fill: 'forwards', delay: 0});
+                    button.style.transition = "all 0.5s ease-in-out";
+                    description.animate([{height: '0vmax'}, {height: '80.0vw'}], {duration: 5000, fill: 'forwards', delay: 0});
                 });
         });
     });
@@ -41,7 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function clearTabButtonColors(buttons) {
         buttons.forEach(button => {
             button.style.color = "#515151";
-            button.style.backgroundColor = "#ECECEC";
+            button.style.webkitTextStroke = "0.1vw #b9b9b9";
+            button.style.backgroundColor = "rgba(236, 236, 236, 0.5)";
         });
     }
 
