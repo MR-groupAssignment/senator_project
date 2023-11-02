@@ -16,14 +16,43 @@
 
 <body>
     <header class="head">
-        <div class="mainHeading">
-            <h1>U.S.A Senators</h1>
+        <a href="https://www.govtrack.us/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <div class="mainHeading">
+                <img src="./images/us_capitol.png">
+                <h1>U.S.A Senators</h1>
+            </div>
+        </a>
+        <div class="headingIcon">    
+            <img class="iconImage" src="./images/bars-solid.svg" alt="MenuIcon" onclick="openmenu()" >
         </div>
-        <nav class="navBar">
-            <a href="#leaders">Leaders</a>
-            <a href="#senatorsList">Senators</a>
-            <a href="#footer">About us</a>
-        </nav>
+
+        <div class="navBar">
+            <ul>
+                <li><a href="#leaders">Leaders</a></li>
+                <li><a href="#senatorsList">Senators</a></li>
+                <li><a href="#footer">About Us</a></li>
+            </ul>
+        </div>
+
+        <!-- implementation for changing menu icons -->
+        <script>
+            function openmenu()
+            {
+                var navmenu = document.getElementsByClassName("navBar")[0];
+                var iconImg = document.getElementsByClassName("iconImage")[0];
+
+                if(navmenu.style.display==='none')
+                {
+                    navmenu.style.display = 'block';
+                    iconImg.src = "./images/x-solid.svg";
+                }
+                else
+                {
+                    navmenu.style.display = 'none';
+                    iconImg.src = "./images/bars-solid.svg";
+                }
+            }
+        </script>
     </header>
 
     <main class="mainContent">

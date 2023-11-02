@@ -18,21 +18,50 @@
     height: 5.0vmax;
 }
 
+.mainHeading
+{
+    display: flex;
+    gap: 10px;
+}
+
+.mainHeading:hover
+{
+    transform: scale(1.05);
+}
+
+.mainHeading img
+{
+    height:5vw;
+    width:5vw;
+}
+
 .head h1 {
     font-size: 4.0vw;
     text-shadow: 0.1vw 0.1vw 0.4vw #000000ba;
 }
 
 .navBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 1.0vw;
+    display: none;
+    position: absolute;
+    right:1vw;
+    top:9vh;
+    background-color: #023E8A;
+    /* border: 1px solid #ccc; */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1;
 }
 
+.navBar ul{
+    list-style-type: none;
+    padding: 0;
+}
+.navBar li
+{
+    padding: 15px;
+}
 .navBar a {
     text-decoration: none;
-    font-size: 1.5vw;
+    font-size:1.5vw;
     text-shadow: 0.1vw 0.1vw 0.4vw #000000ba;
     padding: 1.0vw;
     min-width: 5.0vw;
@@ -50,6 +79,33 @@
     transform: scale(0.9);
 }
 
+.headingIcon
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size:xx-large;
+    margin-right: 2%;
+}
+
+.headingIcon img{
+    height: 5vh;
+    width: auto;
+}
+
+.headingIcon img:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.crossHeadingIcon
+{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size:xx-large;
+    margin-right: 2%;
+}
 .entryVideo {
     display: flex;
     align-items: center;
