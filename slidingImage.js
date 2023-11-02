@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let countDemo = 0;
             let countInde = 0;
             element.addEventListener('mouseover', function() {
+                element.innerHTML = '';
                 fetch(jsonFile,{mode:'cors'})
                 .then(response => response.json())
                 .then(data => {
