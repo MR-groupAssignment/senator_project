@@ -199,7 +199,6 @@ function GetSenatorDetails(index)
             td2.innerHTML = `${data.objects[index].state} - ${dataOfStates[data.objects[index].state]}`
             tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
             table.innerHTML += tr.outerHTML
-        })
 
         td1.innerHTML = `Rank`
         td2.innerHTML = `${data.objects[index].senator_rank_label} ${data.objects[index].senator_class_label}`
@@ -222,7 +221,7 @@ function GetSenatorDetails(index)
         table.innerHTML += tr.outerHTML
 
         td1.innerHTML = `Contact Form`
-        td2.innerHTML = `<a style="text-decoration:none" target="_blank" href="${data.objects[index].extra.contact_form}">${data.objects[index].extra.contact_form}</a>`
+        td2.innerHTML = `<a class="styleToLink" target="_blank" href="${data.objects[index].extra.contact_form}">${data.objects[index].extra.contact_form}</a>`
         tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
         table.innerHTML += tr.outerHTML
 
@@ -268,14 +267,15 @@ function GetSenatorDetails(index)
         table.innerHTML += tr.outerHTML
 
         td1.innerHTML = `Website`
-        td2.innerHTML = `<a style="text-decoration:none" target="_blank" href="${data.objects[index].website}">${data.objects[index].website}</a>`
+        td2.innerHTML = `<a class="styleToLink" target="_blank" href="${data.objects[index].website}">${data.objects[index].website}</a>`
         tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
         table.innerHTML += tr.outerHTML
 
         td1.innerHTML = `For More Info`
-        td2.innerHTML = `<a style="text-decoration:none" target="_blank" href="${data.objects[index].person.link}">${data.objects[index].person.link}</a>`
+        td2.innerHTML = `<a class="styleToLink" target="_blank" href="${data.objects[index].person.link}">${data.objects[index].person.link}</a>`
         tr.innerHTML = `${td1.outerHTML}${td2.outerHTML}`
         table.innerHTML += tr.outerHTML
+    })
     })
 }
 

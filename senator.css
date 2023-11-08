@@ -1,7 +1,6 @@
 * {
     margin: 0;
     color: #93e2ff;
-    font-family: 'Barlow Semi Condensed', sans-serif;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -69,7 +68,7 @@
 .iconImage{
     height: 5.0vw;
     width: 5.0vw;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .navBar nav{
@@ -375,7 +374,6 @@
     text-shadow: rgba(1, 1, 1, 0.9) 0.2vw 0.2vw 0.2vw;
 }
 
-/*ritwik edits - 24/10*/
 .tableCover {
     display: flex;
     justify-content: center;
@@ -478,7 +476,10 @@
     color: #ad1940;
     text-shadow: rgba(1, 1, 1, 0.9) 0.1vw 0.25vw 0.25vw;
     -webkit-text-stroke: #fe95a7 0.005vw;
+    box-sizing: border-box;
+    border: 0.2vmin solid #93e2ff;
 }
+
 
 .mainTable {
     background-color: rgba(173, 25, 64, 0.7);
@@ -489,15 +490,24 @@
     text-align: center;
     color: #93e2ff;
     text-shadow: rgba(1, 1, 1, 0.9) 0.05vw 0.15vw 0.15vw;
+    box-sizing: border-box;
+    border-right: 0.2vmin solid #93e2ff;
     padding: 1.0vw;
 }
 
 .info:hover {
     background-color: #c30d3d;
+    box-sizing: border-box;
+    border: 0.2vmin solid #93e2ff;
+    cursor: pointer;
+    & td{
+        color: #eeff00;
+    }
 }
 
 .info:active {
-    transform: scale(0.9);
+    border: 0 solid #93e2ff;
+    background-color: #0058b6;
 }
 
 footer {
@@ -663,4 +673,20 @@ footer {
     transform: scale(1.1);
     border: solid 0.1vw #ad1940;
     transition: all 0.1s ease-in-out;
+}
+
+.close:active {
+    transform: scale(0.9);
+}
+
+.styleToLink{
+    text-decoration: none;
+    &:hover{
+        color: #eeff00;
+        text-decoration: underline;
+    }
+
+    &:active{
+        color: silver;
+    }
 }
