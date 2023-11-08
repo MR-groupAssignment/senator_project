@@ -1,11 +1,24 @@
 * {
     margin: 0;
     color: #93e2ff;
+    font-display: swap;
     font-family: 'Ubuntu', sans-serif;
 }
 
 *::-webkit-scrollbar {
     width: 0vmin;
+}
+
+video::-webkit-media-text-track-display-backdrop {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+::cue {
+    color: #93e2ff;
+    width: 100%;
+    font-size: 3.0vw;
+    font-weight: bolder;
+    text-shadow: #00000093 0.3vw -0.3vw 0.1vw;
 }
 
 .head {
@@ -16,46 +29,50 @@
     height: 8.0vw;
 }
 
-.mainHeadingImage, .mainHeading, .navBar{
+.mainHeadingImage,
+.mainHeading,
+.navBar {
     flex: 1;
 }
 
-.mainHeading{
+.mainHeading {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .mainHeading a,
-.mainHeadingImage a{
+.mainHeadingImage a {
     text-decoration: none;
-    & h1:hover{
-        background: -webkit-radial-gradient(circle, rgba(2,62,138,1) 0%, rgba(129,196,255,1) 25%, rgba(255,153,165,1) 75%, rgba(173,25,64,1) 100%);
+
+    & h1:hover {
+        background: -webkit-radial-gradient(circle, rgba(2, 62, 138, 1) 0%, rgba(129, 196, 255, 1) 25%, rgba(255, 153, 165, 1) 75%, rgba(173, 25, 64, 1) 100%);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
         -webkit-text-stroke: #ff99a5 0;
         text-shadow: none;
         transition: all 1.0s ease-in-out;
     }
+
     & h1:hover,
-    & img:hover{
+    & img:hover {
         transform: scale(1.1);
     }
 
     & h1:active,
-    & img:active{
+    & img:active {
         transform: scale(0.9);
     }
 }
 
-.mainHeading a h1{
+.mainHeading a h1 {
     color: #ad1940;
     font-size: 6.0vw;
     -webkit-text-stroke: #ff99a5 0.005vw;
     text-shadow: rgba(1, 1, 1, 0.9) 0.5vw 0.2vw 0.5vw;
 }
 
-.mainHeadingImage a img{
+.mainHeadingImage a img {
     width: 5.5vw;
 }
 
@@ -65,13 +82,12 @@
     justify-content: flex-end;
 }
 
-.iconImage{
+.iconImage {
     height: 5.0vw;
-    width: 5.0vw;
     transition: all 0.2s ease-in-out;
 }
 
-.navBar nav{
+.navBar nav {
     display: none;
     flex-direction: column;
     align-items: center;
@@ -87,19 +103,21 @@
     border-radius: 0 0 1.0vw 1.0vw;
 }
 
-.navBar nav a{
+.navBar nav a {
     text-decoration: none;
-    &:hover{
+
+    &:hover {
         transform: scale(1.1);
         color: #93e2ff;
     }
 }
 
-.navBar nav a h2{
+.navBar nav a h2 {
     font-size: 2.0vw;
     color: #ad1940;
     -webkit-text-stroke: #fe95a7 0.005vw;
-    &:hover{
+
+    &:hover {
         color: #93e2ff;
         -webkit-text-stroke: #93e2ff 0.005vw;
     }
@@ -179,7 +197,7 @@
 }
 
 .imageSlider {
-    background-image: url(./images/us_flag.png);
+    background-image: url(./images/us_flag.avif);
     background-position: center;
     background-size: cover;
     width: 100.0vw;
@@ -215,18 +233,6 @@
     }
 }
 
-@keyframes blinkText {
-    from {
-        color: #ffffff00;
-        -webkit-text-stroke: #00000000 0.1vw;
-    }
-
-    to {
-        color: #ffffff;
-        -webkit-text-stroke: #000000 0.1vw;
-    }
-}
-
 @keyframes moveLeft {
     from {
         transform: translateX(-33.33vw);
@@ -240,7 +246,6 @@
 
 .imageRepublic {
     animation: moveLeft 4.0s 0s alternate linear;
-    width: 33.33vw;
 }
 
 @keyframes moveRight {
@@ -255,7 +260,6 @@
 
 .imageDemocrat {
     animation: hideTillAnimate 4.0s 0s linear, moveRight 4.0s 4.0s alternate linear;
-    width: 33.33vw;
 }
 
 @keyframes moveUp {
@@ -268,8 +272,7 @@
     }
 }
 
-.imageIndependent{
-    width: 33.33vw;
+.imageIndependent {
     animation: hideTillAnimate 8.0s 0s linear, moveUp 4.0s 8.0s alternate linear;
 }
 
@@ -280,12 +283,13 @@
 }
 
 @keyframes increaseSizeTillAnimate {
-    from{
+    from {
         font-size: 8.0vw;
     }
-    to{
+
+    to {
         font-size: 0vw;
-    } 
+    }
 }
 
 .percentDemocrat,
@@ -315,7 +319,7 @@
 }
 
 .percentDemocrat:hover {
-    background-color: rgba(10, 49, 97, 0.5);   
+    background-color: rgba(10, 49, 97, 0.5);
     color: #023E8A;
     -webkit-text-stroke: #81c4ff 0.1vw;
     text-shadow: rgba(0, 0, 0, 0.5) 0.5vw 0.5vw 0.5vw;
@@ -330,8 +334,8 @@
     transition: all 0.5s ease-in-out;
 }
 
-#leaders{
-    background-image: url(./images/republican.png);
+#leaders {
+    background-image: url(./images/republican.avif);
     background-position: center;
     background-size: cover;
 }
@@ -353,22 +357,23 @@
     border: none;
 }
 
-.description{
+.description {
     white-space: nowrap;
     overflow-x: scroll;
     padding: 2.0vh 2.0vw;
 }
 
-.description .tableOfTabs{
+.description .tableOfTabs {
     margin: auto;
     height: 100%;
 }
 
-.contentName{
+.contentName {
     text-align: right;
 }
 
-.contentName, .contentTitle{
+.contentName,
+.contentTitle {
     font-size: 3.0vw;
     color: #93e2ff;
     text-shadow: rgba(1, 1, 1, 0.9) 0.2vw 0.2vw 0.2vw;
@@ -379,7 +384,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url(./images/tableBackground.jpg);
+    background-image: url(./images/tableBackground.avif);
     background-repeat: repeat;
 }
 
@@ -410,7 +415,9 @@
     gap: 1.0vw;
 }
 
-.filter p {
+.filter label {
+    width: 100%;
+    text-align: center;
     font-size: 4.0vw;
     font-weight: bolder;
     color: #0058b6;
@@ -427,9 +434,9 @@
     box-shadow: 0 0 1vmin #000000a5;
     border: none;
     border-radius: 3px;
+    text-align: center;
     width: 100%;
     padding: 2.0vw;
-    text-align: center;
     cursor: pointer;
     appearance: none;
     background-image: url("./images/down-arrow-svgrepo-com.svg");
@@ -500,7 +507,8 @@
     box-sizing: border-box;
     border: 0.2vmin solid #93e2ff;
     cursor: pointer;
-    & td{
+
+    & td {
         color: #eeff00;
     }
 }
@@ -565,7 +573,7 @@ footer {
     transform: scale(0.9);
 }
 
-.creatorImage img{
+.creatorImage img {
     width: 10.0vw;
     box-shadow: #000000cc 0.4vw 0.4vw 0.8vw;
 }
@@ -621,7 +629,7 @@ footer {
     border-radius: 1.0vw;
 }
 
-.senatorDetailsTop{
+.senatorDetailsTop {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -629,11 +637,11 @@ footer {
     gap: 1.0vw;
 }
 
-.Image{
+.Image {
     width: 20.0vmin;
 }
 
-.senate.Image{
+.senate.Image {
     box-shadow: #000000cc 0.4vw 0.4vw 0.8vw;
 }
 
@@ -649,12 +657,12 @@ footer {
     font-size: 1.5vw;
 }
 
-.senateRow{
+.senateRow {
     padding: 1.0vh 1.0vw;
     text-shadow: #00000093 0.2vw 0.2vw 0.2vw;
 }
 
-.senateInfo{
+.senateInfo {
     color: #c30d3d;
 }
 
@@ -679,14 +687,15 @@ footer {
     transform: scale(0.9);
 }
 
-.styleToLink{
+.styleToLink {
     text-decoration: none;
-    &:hover{
+
+    &:hover {
         color: #eeff00;
         text-decoration: underline;
     }
 
-    &:active{
+    &:active {
         color: silver;
     }
 }

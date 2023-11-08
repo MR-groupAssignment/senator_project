@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const tabs = document.querySelector('.tabs');
     const tabButtons = tabs.querySelectorAll('.tabButton');
     const content = document.querySelector('.description .tableOfTabs');
@@ -9,14 +9,15 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', () => {
             clearTabButtonColors(tabButtons);
             content.innerHTML = "";
-
-            fetch(jsonFile,{mode:'cors'})
-                .then(response => response.json())
+            fetch(jsonFile, { mode: 'cors' })
+                .then(response => {
+                    return response.json();
+                })
                 .then(data => {
-                    arrayOfColors = ['rgba(179, 25, 66, 0.5)', 'rgba(10, 49, 97, 0.5)','rgba(128, 0, 128, 0.5)'];
+                    arrayOfColors = ['rgba(179, 25, 66, 0.5)', 'rgba(10, 49, 97, 0.5)', 'rgba(128, 0, 128, 0.5)'];
                     arrayOfTextColors = ['#ba002f', '#023E8A', '#800080'];
                     arrayOfStrokeColors = ['#ff99a5', '#81c4ff', '#ff72ff'];
-                    arrayOfBackground = ['./images/republican.png', './images/democrat.png', './images/independent.png'];
+                    arrayOfBackground = ['./images/republican.avif', './images/democrat.avif', './images/independent.avif'];
                     const tr = document.createElement('tr');
                     const contentName = document.createElement('td');
                     contentName.classList.add('contentName');
@@ -43,11 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         displayPartyLeaders(data, tr, contentName, contentTitle, 'Independent', 2);
                     }
                     button.style.transition = "all 0.5s ease-in-out";
-                    description.animate([{height: '0vmax'}, {height: '80.0vw'}], {duration: 5000, fill: 'forwards', delay: 0});
-                });
+                    description.animate([{ height: '0vmax' }, { height: '80.0vw' }], { duration: 5000, fill: 'forwards', delay: 0 });
+                })
         });
     });
-    
     tabButtons[0].click();
 
     function clearTabButtonColors(buttons) {
