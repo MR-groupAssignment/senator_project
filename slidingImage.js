@@ -20,42 +20,52 @@ document.addEventListener('DOMContentLoaded', function () {
             let countInde = 0;
             element.addEventListener('mouseover', function () {
                 element.innerHTML = '';
-                fetch(jsonFile, { mode: 'cors' })
-                    .then(response => {
-                        return response.json();
-                    })
+
+                    fetch(jsonFile,{mode:'cors'})
+                    .then(response => response.json())
                     .then(data => {
                         let countRepublic = 0;
                         let countDemocrat = 0;
                         let countIndependent = 0;
-                        for (let i = 0; i < data.objects.length; i++) {
+                        for (i = 0; i < data.objects.length; i++) {
                             if (data.objects[i].party === "Republican") {
                                 countRepublic++;
                             } else if (data.objects[i].party === "Democrat") {
                                 countDemocrat++;
-                            } else if (data.objects[i].party === "Independent") {
+                            }
+                            else if (data.objects[i].party === "Independent") {
                                 countIndependent++;
                             }
                         }
                         if (element.classList.contains('percentRepublic') && countRepub === 0) {
                             countRepub++;
-                            percentRepublic.innerHTML += `${(countRepublic / data.objects.length) * 100}%<br>`;
+                            percentRepublic.innerHTML +=`${(countRepublic / data.objects.length) * 100}%<br>`;
                             percentRepublic.innerHTML += `Majority Republicans<br>`;
                             percentRepublic.innerHTML += `Total ${countRepublic} Members`;
                             imageRepublic.style.animation = 'flip 2.0s 0s alternate linear';
-                        } else if (element.classList.contains('percentDemocrat') && countDemo === 0) {
+    
+                        } 
+                        else if (element.classList.contains('percentDemocrat') && countDemo === 0) {
                             countDemo++;
-                            percentDemocrat.innerHTML += `${(countDemocrat / data.objects.length) * 100}%<br>`;
+                            percentDemocrat.innerHTML +=`${(countDemocrat / data.objects.length) * 100}%<br>`;
                             percentDemocrat.innerHTML += `Majority Democrat<br>`;
                             percentDemocrat.innerHTML += `Total ${countDemocrat} Members`;
                             imageDemocrat.style.animation = 'flip 2.0s 0s alternate linear';
-                        } else if (element.classList.contains('percentIndependent') && countInde === 0) {
+                        }
+                        else if (element.classList.contains('percentIndependent') && countInde === 0) {
                             countInde++;
-                            percentIndependent.innerHTML += `${(countIndependent / data.objects.length) * 100}%<br>`;
+                            percentIndependent.innerHTML +=`${(countIndependent / data.objects.length) * 100}%<br>`;
                             percentIndependent.innerHTML += `Majority Independent<br>`;
                             percentIndependent.innerHTML += `Total ${countIndependent} Members`;
                             imageIndependent.style.animation = 'flip 2.0s 0s alternate linear';
                         }
+                    }
+                    )
+                    .catch((error) =>
+                    {
+                        document.getElementsByClassName("percentRepublic")[0].innerHTML = "Sorry not able to fetch data";
+                        document.getElementsByClassName("percentDemocrat")[0].innerHTML = "Sorry not able to fetch data";
+                        document.getElementsByClassName("percentIndependent")[0].innerHTML = "Sorry not able to fetch data";
                     });
             });
 

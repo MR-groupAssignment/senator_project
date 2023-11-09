@@ -2,50 +2,85 @@ let body = document.querySelector('body');
 let main = document.querySelector('main');
 
 async function GetJsonData() {
-    const jsonfile = './senators.json';
-    const response = await fetch(jsonfile, { mode: 'cors' });
-    const data = await response.json();
+    var uniqueParties = [];
+    var uniqueStates = [];
+    var uniqueRanks = [];
 
-    const uniqueParties = Array.from(new Set(data.objects.map(obj => obj.party)));
-    const uniqueStates = Array.from(new Set(data.objects.map(obj => obj.state)));
-    const uniqueRanks = Array.from(new Set(data.objects.map(obj => obj.senator_rank_label)));
 
-    uniqueStates.sort();
-    uniqueRanks.sort();
+    try{
+        const jsonfile = './senators.json';
 
-    const statesResponse = await fetch("https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_hash.json");
-    const statesData = await statesResponse.json();
-    const updatedStates = uniqueStates.map(state => `${state} - ${statesData[state]}`);
-
-    AddStateFilterValues(updatedStates);
-    FillTableData(data, uniqueParties);
-    AddPartyFilterValues(uniqueParties);
-    AddRankFilterValues(uniqueRanks);
+        const promise = await fetch(jsonfile,{mode:'cors'});
+        if (!promise.ok)
+        {
+            throw new Error(`status:${promise.status}`)
+        }    
+        const data = await promise.json();
+    
+        for (var objItr = 0; objItr < data.objects.length; objItr++) {
+            if (uniqueParties.indexOf(data.objects[objItr].party) === -1) {
+                uniqueParties.push(data.objects[objItr].party);
+            }
+            if (uniqueParties.indexOf(data.objects[objItr].state) === -1) {
+                uniqueStates.push(data.objects[objItr].state);
+            }
+    
+            if (uniqueRanks.indexOf(data.objects[objItr].senator_rank_label) === -1) {
+                uniqueRanks.push(data.objects[objItr].senator_rank_label);
+            }
+        }
+    
+    
+        uniqueParties = Array.from(new Set(uniqueParties));
+        uniqueStates = Array.from(new Set(uniqueStates));
+        uniqueRanks = Array.from(new Set(uniqueRanks));
+    
+        uniqueStates.sort();
+        uniqueRanks.sort();
+        fetch("https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_hash.json")
+        .then(response => response.json())
+        .then(dataOfStates => {
+            uniqueStates.forEach((state, index) => {
+                uniqueStates[index] = `${state} - ${dataOfStates[state]}`;
+            })
+    
+            AddStateFilterValues(uniqueStates);
+        })    
+    
+        FillTableData(data, uniqueParties);
+        AddPartyFilterValues(uniqueParties);
+        AddRankFilterValues(uniqueRanks);
+    
+    }
+    catch(error)
+    {
+        document.getElementsByClassName("mainTable")[0].innerHTML += "<tr colspan = \"4\"> <td>"+ "JSON file not present in working directory" +error + "</td></tr>";
+    }
 }
 
 function FillTableData(data, uniqueParties) {
     fetch("https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_hash.json")
-        .then(response => response.json())
-        .then(dataOfStates => {
-            var table = document.getElementsByClassName("mainTable")[0];
-            for (var j = 0; j < uniqueParties.length; j++) {
-                for (var dt = 0; dt < data.objects.length; dt++) {
-                    if (data.objects[dt].party == uniqueParties[j]) {
-                        let iconOfGender = data.objects[dt].person.gender_label === "Male" ? "♂" : "♀";
-                        let iconOfParty = data.objects[dt].party === "Democrat" ? "🫏" : data.objects[dt].party === "Republican" ? "🐘" : "🦅";
-                        console.log(iconOfGender)
-                        const senatorInfo = `<tr class="info" onclick="GetSenatorDetails(${dt})">
-                                            <td>${data.objects[dt].person.firstname} ${data.objects[dt].person.lastname}</td>
-                                            <td>${iconOfParty} ${data.objects[dt].party}</td>
-                                            <td>${data.objects[dt].state} - ${dataOfStates[data.objects[dt].state]}</td>
-                                            <td>${iconOfGender} ${data.objects[dt].person.gender_label}</td>
-                                            <td>${data.objects[dt].senator_rank_label}</td>
-                                            </tr>`;
-                        table.innerHTML += senatorInfo;
-                    }
+    .then(response => response.json())
+    .then(dataOfStates => {
+        var table = document.getElementsByClassName("mainTable")[0];
+        for (var j = 0; j < uniqueParties.length; j++) {
+            for (var dt = 0; dt < data.objects.length; dt++) {
+                if (data.objects[dt].party == uniqueParties[j]) {
+                    let iconOfGender = data.objects[dt].person.gender_label === "Male" ? "♂" : "♀";
+                    let iconOfParty = data.objects[dt].party === "Democrat" ? "🫏" : data.objects[dt].party === "Republican" ? "🐘" : "🦅";
+                    const senatorInfo = `<tr class="info" onclick="GetSenatorDetails(${dt})">
+                                    <td>${data.objects[dt].person.firstname} ${data.objects[dt].person.lastname}</td>
+                                    <td>${iconOfParty} ${data.objects[dt].party}</td>
+                                    <td>${data.objects[dt].state} - ${dataOfStates[data.objects[dt].state]}</td>
+                                    <td>${iconOfGender} ${data.objects[dt].person.gender_label}</td>
+                                    <td>${data.objects[dt].senator_rank_label}</td>
+                                    </tr>`; 
+
+                    table.innerHTML += senatorInfo;
                 }
             }
-        })
+        }
+    })
 }
 
 function ApplyFilters() {

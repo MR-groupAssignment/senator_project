@@ -9,43 +9,57 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', () => {
             clearTabButtonColors(tabButtons);
             content.innerHTML = "";
-            fetch(jsonFile, { mode: 'cors' })
-                .then(response => {
-                    return response.json();
-                })
+            arrayOfColors = ['rgba(179, 25, 66, 0.5)', 'rgba(10, 49, 97, 0.5)','rgba(128, 0, 128, 0.5)'];
+            arrayOfTextColors = ['#ba002f', '#023E8A', '#800080'];
+            arrayOfStrokeColors = ['#ff99a5', '#81c4ff', '#ff72ff'];
+            arrayOfBackground = ['./images/republican.png', './images/democrat.png', './images/independent.png'];
+            const tr = document.createElement('tr');
+            const contentName = document.createElement('td');
+            contentName.classList.add('contentName');
+            const contentTitle = document.createElement('td');
+            contentTitle.classList.add('contentTitle');
+            if (button.name === 'republicBtn')
+            {
+                button.style.backgroundColor = `${arrayOfColors[0]}`;
+                button.style.color = `${arrayOfTextColors[0]}`;
+                button.style.webkitTextStroke = `0.1vw ${arrayOfStrokeColors[0]}`;
+                leader.style.backgroundImage = `url(${arrayOfBackground[0]})`;
+            }
+            else if (button.name === 'democratBtn')
+            {
+                button.style.backgroundColor = `${arrayOfColors[1]}`;
+                button.style.color = `${arrayOfTextColors[1]}`;
+                button.style.webkitTextStroke = `0.1vw ${arrayOfStrokeColors[1]}`;
+                leader.style.backgroundImage = `url(${arrayOfBackground[1]})`;
+            }
+            else if (button.name === 'independentBtn')
+            {
+                button.style.backgroundColor = `${arrayOfColors[2]}`;
+                button.style.color = `${arrayOfTextColors[2]}`;
+                button.style.webkitTextStroke = `0.1vw ${arrayOfStrokeColors[2]}`;
+                leader.style.backgroundImage = `url(${arrayOfBackground[2]})`;
+            }
+                fetch(jsonFile,{mode:'cors'})
+                .then(response => response.json())
                 .then(data => {
-                    arrayOfColors = ['rgba(179, 25, 66, 0.5)', 'rgba(10, 49, 97, 0.5)', 'rgba(128, 0, 128, 0.5)'];
-                    arrayOfTextColors = ['#ba002f', '#023E8A', '#800080'];
-                    arrayOfStrokeColors = ['#ff99a5', '#81c4ff', '#ff72ff'];
-                    arrayOfBackground = ['./images/republican.avif', './images/democrat.avif', './images/independent.avif'];
-                    const tr = document.createElement('tr');
-                    const contentName = document.createElement('td');
-                    contentName.classList.add('contentName');
-                    const contentTitle = document.createElement('td');
-                    contentTitle.classList.add('contentTitle');
-
                     if (button.name === 'republicBtn') {
-                        button.style.backgroundColor = `${arrayOfColors[0]}`;
-                        button.style.color = `${arrayOfTextColors[0]}`;
-                        button.style.webkitTextStroke = `0.1vw ${arrayOfStrokeColors[0]}`;
-                        leader.style.backgroundImage = `url(${arrayOfBackground[0]})`;
                         displayPartyLeaders(data, tr, contentName, contentTitle, 'Republican', 0);
                     } else if (button.name === 'democratBtn') {
-                        button.style.backgroundColor = `${arrayOfColors[1]}`;
-                        button.style.color = `${arrayOfTextColors[1]}`;
-                        button.style.webkitTextStroke = `0.1vw ${arrayOfStrokeColors[1]}`;
-                        leader.style.backgroundImage = `url(${arrayOfBackground[1]})`;
                         displayPartyLeaders(data, tr, contentName, contentTitle, 'Democrat', 1);
                     } else if (button.name === 'independentBtn') {
-                        button.style.backgroundColor = `${arrayOfColors[2]}`;
-                        button.style.color = `${arrayOfTextColors[2]}`;
-                        button.style.webkitTextStroke = `0.1vw ${arrayOfStrokeColors[2]}`;
-                        leader.style.backgroundImage = `url(${arrayOfBackground[2]})`;
                         displayPartyLeaders(data, tr, contentName, contentTitle, 'Independent', 2);
                     }
                     button.style.transition = "all 0.5s ease-in-out";
-                    description.animate([{ height: '0vmax' }, { height: '80.0vw' }], { duration: 5000, fill: 'forwards', delay: 0 });
+                    description.animate([{height: '0vmax'}, {height: '80.0vw'}], {duration: 5000, fill: 'forwards', delay: 0});
                 })
+                .catch((error) =>
+                {
+                    description.innerHTML ="";
+                    description.innerHTML += "<p>" + "Sorry not able to fetch data" +"</p>";
+                    button.style.transition = "all 0.5s ease-in-out";
+                    description.animate([{height: '0vmax'}, {height: '80.0vw'}], {duration: 5000, fill: 'forwards', delay: 0});
+
+                });
         });
     });
     tabButtons[0].click();

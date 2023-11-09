@@ -8,10 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     switcher.forEach(element => {
         element.addEventListener("click", () => {
-            fetch("./members.json", { mode: 'cors' })
-                .then(response => {
-                    return response.json();
-                })
+                fetch("./members.json",{mode:'cors'})
+                .then(response => response.json())
                 .then(data => {
                     const name = element.id === "musaddique" ? "Musaddique" : "Ritwik";
                     summaryName.textContent = data[name].Name;
@@ -22,6 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         socialNames[i].textContent = data[name].Social[i].Name;
                     }
                 })
+                .catch((err)=>{
+                    summary.textContent = "Sorry, Cannot display the data right now!";
+                });
         });
     });
     switcher[0].click();
