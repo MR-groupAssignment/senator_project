@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
             arrayOfColors = ['rgba(179, 25, 66, 0.5)', 'rgba(10, 49, 97, 0.5)','rgba(128, 0, 128, 0.5)'];
             arrayOfTextColors = ['#ba002f', '#023E8A', '#800080'];
             arrayOfStrokeColors = ['#ff99a5', '#81c4ff', '#ff72ff'];
-            arrayOfBackground = ['./images/republican.png', './images/democrat.png', './images/independent.png'];
+            arrayOfBackground = ['./images/republican.avif', './images/democrat.avif', './images/independent.avif'];
             const tr = document.createElement('tr');
             const contentName = document.createElement('td');
             contentName.classList.add('contentName');
