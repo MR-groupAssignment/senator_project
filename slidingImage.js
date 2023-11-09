@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         let countRepublic = 0;
                         let countDemocrat = 0;
                         let countIndependent = 0;
-                        for (i = 0; i < data.objects.length; i++) {
+                        for (let i = 0; i < data.objects.length; i++) {
                             if (data.objects[i].party === "Republican") {
                                 countRepublic++;
                             } else if (data.objects[i].party === "Democrat") {

@@ -210,6 +210,10 @@ function GetSenatorDetails(index) {
                     createTableRow('Website', `<a class="styleToLink" target="_blank" href="${senator.website}">${senator.website}</a>`);
                     createTableRow('For More Info', `<a class="styleToLink" target="_blank" href="${senator.person.link}">${senator.person.link}</a>`);
                 });
+        })
+        .catch((error)=>
+        {
+            console.log(error);
         });
 }
 
