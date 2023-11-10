@@ -8,7 +8,7 @@
 *{
     margin: 0;
     color: var(--textColor);
-    font-display: swap;
+    /* font-display: swap; */
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -259,6 +259,7 @@ video::-webkit-media-text-track-display-backdrop {
 .imageRepublic,
 .percentRepublic {
     animation: moveLeft 6.0s 0s alternate linear;
+    width:33.33vw;
 }
 
 @keyframes moveRight {
@@ -274,6 +275,7 @@ video::-webkit-media-text-track-display-backdrop {
 .imageDemocrat,
 .percentDemocrat {
     animation: hideTillAnimate 6.0s 0s linear, moveRight 6.0s 6.0s alternate linear;
+    width: 33.33vw;
 }
 
 @keyframes getBigger {
@@ -289,6 +291,7 @@ video::-webkit-media-text-track-display-backdrop {
 .imageIndependent,
 .percentIndependent {
     animation: hideTillAnimate 12.0s 0s linear, getBigger 6.0s 12.0s alternate linear;
+    width:33.33vw;
 }
 
 .percentageOfLogos {
@@ -521,6 +524,15 @@ video::-webkit-media-text-track-display-backdrop {
 .info:active {
     border: 0 solid var(--textColor);
     background-color: #033c8780;
+}
+#errorDisp
+{
+    text-align: center;
+    color:whitesmoke;
+    font-size: 5vh;
+    background-color: red;
+    padding: 5px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 footer {

@@ -88,15 +88,36 @@ function ApplyFilters() {
     const state = document.getElementById("stateFilter").value.toLowerCase();
     const rank = document.getElementById("rankFilter").value.toLowerCase();
 
+    var hiddenRows = 0;
     const informationRows = document.getElementsByClassName("info");
 
-    for (const row of informationRows) {
-        const [partyCell, stateCell, rankCell] = row.cells;
+    for (var row =0; row<informationRows.length; row++) {
+        var partyCell = informationRows[row].cells[1];
+        var stateCell = informationRows[row].cells[2];
+        var rankCell = informationRows[row].cells[4];
         const isPartyMatch = partyCell.innerHTML.toLowerCase().includes(party);
         const isStateMatch = stateCell.innerHTML.toLowerCase().includes(state);
         const isRankMatch = rankCell.innerHTML.toLowerCase().includes(rank);
-
-        row.style.display = isPartyMatch && isStateMatch && isRankMatch ? "" : "none";
+        if(isPartyMatch && isStateMatch && isRankMatch)
+        {
+            informationRows[row].style.display = "";
+        }
+        else
+        {
+            informationRows[row].style.display = "none";
+            hiddenRows +=1;
+        }
+    }
+    console.log(hiddenRows);
+    if(hiddenRows == informationRows.length)
+    {
+        document.getElementById("errorDisp").innerHTML = "No results matching. Please try different set of filters.";
+        document.getElementById("errorDisp").style.display="";
+    }
+    else
+    {
+        document.getElementById("errorDisp").innerHTML = "";
+        document.getElementById("errorDisp").style.display="none";
     }
 }
 
