@@ -51,25 +51,6 @@ video::-webkit-media-text-track-display-backdrop {
 .mainHeading a,
 .mainHeadingImage a {
     text-decoration: none;
-
-    & h1:hover {
-        background: -webkit-radial-gradient(circle, rgba(2, 62, 138, 1) 0%, rgba(129, 196, 255, 1) 25%, rgba(255, 153, 165, 1) 75%, rgba(173, 25, 64, 1) 100%);
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-        -webkit-text-stroke: #ff99a5 0;
-        text-shadow: none;
-        transition: all 1.0s ease-in-out;
-    }
-
-    & h1:hover,
-    & img:hover {
-        transform: scale(1.1);
-    }
-
-    & h1:active,
-    & img:active {
-        transform: scale(0.9);
-    }
 }
 
 .mainHeading a h1 {
@@ -79,8 +60,30 @@ video::-webkit-media-text-track-display-backdrop {
     text-shadow: rgba(1, 1, 1, 0.9) 0.5vw 0.2vw 0.5vw;
 }
 
+.mainHeading a h1:hover{
+    background: -webkit-radial-gradient(circle, rgba(2, 62, 138, 1) 0%, rgba(129, 196, 255, 1) 25%, rgba(255, 153, 165, 1) 75%, rgba(173, 25, 64, 1) 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: #ff99a5 0;
+    text-shadow: none;
+    transition: all 1.0s ease-in-out; 
+    transform: scale(1.1);
+}
+
+.mainHeading a h1:active{
+    transform: scale(0.9);
+}
+
 .mainHeadingImage a img {
     width: 5.5vw;
+}
+
+.mainHeadingImage a img:hover {
+    transform: scale(1.1);
+}
+
+.mainHeadingImage a img:active {
+    transform: scale(0.9);
 }
 
 .navBar {
@@ -112,22 +115,22 @@ video::-webkit-media-text-track-display-backdrop {
 
 .navBar nav a {
     text-decoration: none;
+}
 
-    &:hover {
-        transform: scale(1.1);
-        color: var(--textColor);
-    }
+.navBar nav a:hover {
+    transform: scale(1.1);
+    color: var(--textColor);
 }
 
 .navBar nav a h2 {
     font-size: 2.0vw;
     color: var(--redBackground);
     -webkit-text-stroke: var(--redLight) 0.005vw;
+}
 
-    &:hover {
-        color: var(--textColor);
-        -webkit-text-stroke: var(--textColor) 0.005vw;
-    }
+.navBar nav a h2:hover{
+    color: var(--textColor);
+    -webkit-text-stroke: var(--textColor) 0.005vw;
 }
 
 .entryVideo {
@@ -515,10 +518,10 @@ video::-webkit-media-text-track-display-backdrop {
     box-sizing: border-box;
     border: 0.2vmin solid var(--textColor);
     cursor: pointer;
+}
 
-    & td {
-        color: #eeff00;
-    }
+info:hover td {
+    color: #eeff00;
 }
 
 .info:active {
@@ -711,15 +714,15 @@ footer {
 
 .styleToLink {
     text-decoration: none;
+}
 
-    &:hover {
-        color: #eeff00;
-        text-decoration: underline;
-    }
+.styleToLink:hover {
+    color: #eeff00;
+    text-decoration: underline;
+}
 
-    &:active {
-        color: silver;
-    }
+.styleToLink:active {
+    color: silver;
 }
 
 .uniLogo{
