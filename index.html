@@ -69,8 +69,9 @@
                 <track src="./videos/english.vtt" label="English" kind="captions" srclang="en-us" default>
             </video>
             <div class="videoLayer">
-                <p class="videoText"><span style="color: #023E8A; -webkit-text-stroke: #81c4ff 0.1vw;">United</span>
-                    <span style="color: #ad1940; -webkit-text-stroke: #ff99a5 0.1vw;">States</span>
+                <p class="videoText">
+                    <span style="color: var(--blueBackground); -webkit-text-stroke: var(--textColor) 0.1vw;">United</span>
+                    <span style="color: var(--redBackground); -webkit-text-stroke: var(--redLight) 0.1vw;">States</span>
                 </p>
                 <div class="videoControls">
                     <i class="play fa fa-play"></i>
@@ -79,15 +80,15 @@
         </div>
         <div class="imageSlider">
             <div class="imagesOfLogos">
-                <img src="./images/republicansLogo.avif" alt="republican image" class="imageRepublic" width="33.33%">
-                <img src="./images/indepndentsLogo.avif" alt="independent image" class="imageIndependent"
+                <img src="./images/republicansLogo.avif" alt="republican image" class="imageRepublic imageParty one" width="33.33%">
+                <img src="./images/indepndentsLogo.avif" alt="independent image" class="imageIndependent imageParty two"
                     width="33.33%">
-                <img src="./images/democratLogo.avif" alt="democrat image" class="imageDemocrat" width="33.33%">
+                <img src="./images/democratLogo.avif" alt="democrat image" class="imageDemocrat imageParty three" width="33.33%">
             </div>
             <div class="percentageOfLogos">
-                <div class="percentage percentRepublic">Hover/Click</div>
-                <div class="percentage percentIndependent">After</div>
-                <div class="percentage percentDemocrat">Animation</div>
+                <div class="percentage percentRepublic percentParty one"></div>
+                <div class="percentage percentIndependent percentParty two"></div>
+                <div class="percentage percentDemocrat percentParty three"></div>
             </div>
             <script src="./slidingImage.js"></script>
         </div>
@@ -203,6 +204,10 @@
 
             </table>
         </div>
+    </div>
+
+    <div class="uniLogo">
+        <img src="./images/University-College-Dublin.png" alt="ucd logo">
     </div>
 </body>
 

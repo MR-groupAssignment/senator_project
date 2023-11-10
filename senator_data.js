@@ -67,11 +67,11 @@ function FillTableData(data, uniqueParties) {
             for (var dt = 0; dt < data.objects.length; dt++) {
                 if (data.objects[dt].party == uniqueParties[j]) {
                     let iconOfGender = data.objects[dt].person.gender_label === "Male" ? "♂" : "♀";
-                    let iconOfParty = data.objects[dt].party === "Democrat" ? "🫏" : data.objects[dt].party === "Republican" ? "🐘" : "🦅";
+                    let iconOfParty = data.objects[dt].party === "Democrat" ? "democratLogo" : data.objects[dt].party === "Republican" ? "republicansLogo" : "independentLogo";
                     const senatorInfo = `<tr class="info" onclick="GetSenatorDetails(${dt})">
                                     <td>${data.objects[dt].person.firstname} ${data.objects[dt].person.lastname}</td>
-                                    <td>${iconOfParty} ${data.objects[dt].party}</td>
-                                    <td>${data.objects[dt].state} - ${dataOfStates[data.objects[dt].state]}</td>
+                                    <td><img src="./images/${iconOfParty}.svg" class="textLogo"> ${data.objects[dt].party}</td>
+                                    <td><img src="./images/USAStates.svg" class="textLogo"> ${data.objects[dt].state} - ${dataOfStates[data.objects[dt].state]}</td>
                                     <td>${iconOfGender} ${data.objects[dt].person.gender_label}</td>
                                     <td>${data.objects[dt].senator_rank_label}</td>
                                     </tr>`; 

@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const jsonFile = './senators.json';
     setTimeout(function () {
         percentage.forEach(function (element) {
-            element.innerHTML = 'Now'
             let countRepub = 0;
             let countDemo = 0;
             let countInde = 0;
@@ -86,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
-    }, 12000);
+    }, 18000);
 
     function changeVideo() {
         if (video.paused) {
